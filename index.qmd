@@ -1,0 +1,65 @@
+---
+title: "Kirtan Gangani"
+format: html
+toc: false
+---
+
+<table style="width: 100%; border: none;">
+  <tr>
+    <td style="width: 250px; vertical-align: top;">
+      <img src="images/profile.jpg" 
+           alt="Kirtan Gangani" 
+           style="width: 230px; border-radius: 15px;">
+    </td>
+    <td style="padding-left: 20px; vertical-align: top;">
+      <p>
+        I am a recent B.Tech graduate in Computer Engineering from Ajeenkya DY Patil University, where I completed my degree with a GPA of <strong>9.41/10</strong>. Currently, I’m a Research Intern at the <a href="https://sustainability-lab.github.io/" target="_blank">Sustainability Lab, IIT Gandhinagar</a>, where I’m applying artificial intelligence to healthcare — specifically, building vision-based systems for sleep apnea detection using thermal imagery alone, without relying on wearable sensors.
+      </p>
+
+      <p>
+        My technical strengths lie in machine learning, computer vision, NLP, and large language models. I enjoy designing end-to-end ML pipelines and have worked extensively with frameworks like TensorFlow, Hugging Face Transformers, and YOLO architectures. I’m deeply motivated by research that blends practical impact with technical rigor, and I aspire to pursue a Ph.D. in Computer Science to further explore AI for real-world challenges.
+      </p>
+
+      <p>
+        Outside of academics, I am a chess player with a peak Chess.com rapid rating of 1890.
+      </p>
+    </td>
+  </tr>
+</table>
+
+
+<br>
+
+<div style="margin-top: 20px;">
+  <a href="https://github.com/Kirtan7311" target="_blank" style="margin-right: 15px; color: black; text-decoration: none;">
+    <img src="https://img.icons8.com/material-outlined/30/000000/github.png"> GitHub
+  </a>
+  <a href="https://www.linkedin.com/in/kirtan-gangani-k789/" target="_blank" style="margin-right: 15px; color: black; text-decoration: none;">
+    <img src="https://img.icons8.com/material-outlined/30/000000/linkedin.png"> LinkedIn
+  </a>
+  <a href="mailto:kirtangangani789@gmail.com" target="_blank" style="color: black; text-decoration: none;">
+    <img src="https://img.icons8.com/material-outlined/30/000000/email.png"> Email
+  </a>
+</div>
+
+<br>
+
+## My Journey So Far
+
+<table>
+  <colgroup>
+      <col span="1" style="width: 20%;">
+  </colgroup>
+  <tr>
+    <td>May 2025 – Present</td>
+    <td>Started working as <b>Research Intern</b> at <a href="https://sustainability-lab.github.io/" target="_blank">Sustainability Lab, IIT Gandhinagar</a></td>
+  </tr>
+  <tr>
+    <td>May 2025</td>
+    <td>Completed B.Tech in Computer Engineering from Ajeenkya DY Patil University</td>
+  </tr>
+  <tr>
+    <td>Aug 2021</td>
+    <td>Started B.Tech in Computer Engineering at Ajeenkya DY Patil University</td>
+  </tr>
+</table>

@@ -1,0 +1,19 @@
+project:
+  type: website
+
+website:
+  title: "Kirtan Gangani"
+  navbar:
+    left:
+      - text: Home
+        href: index.qmd
+    right:
+      - icon: github
+        href: https://github.com/Kirtan7311
+      - icon: linkedin
+        href: https://www.linkedin.com/in/kirtan-gangani-k789/
+
+format:
+  html:
+    theme: cosmo
+    css: styles.css
