@@ -1,0 +1,12 @@
+---
+title: "My Blogs"
+listing:
+  contents: .
+  sort: "date desc"
+  type: grid
+  grid-columns: 3 
+  categories: true
+  sort-ui: false
+  filter-ui: true
+  fields: [image, title, categories, description, author, date]
+---

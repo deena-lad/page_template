@@ -13,7 +13,7 @@ toc: false
     </td>
     <td style="padding-left: 20px; vertical-align: top;">
       <p>
-        I am a recent B.Tech graduate in Computer Engineering from Ajeenkya DY Patil University, where I completed my degree with a GPA of <strong>9.41/10</strong>. Currently, I’m a Research Intern at the <a href="https://sustainability-lab.github.io/" target="_blank">Sustainability Lab, IIT Gandhinagar</a>, where I’m applying artificial intelligence to healthcare — specifically, building vision-based systems for sleep apnea detection using thermal imagery alone, without relying on wearable sensors.
+        I am a recent B.Tech graduate in Computer Engineering from Ajeenkya DY Patil University, where I completed my degree with a GPA of <strong>9.41/10</strong>. Currently, I’m a Research Intern at the <a href="https://sustainability-lab.github.io/" target="_blank">Sustainability Lab</a>, IIT Gandhinagar led by <a href="https://nipunbatra.github.io/" target="_blank">Prof. Nipun Batra</a>, where I’m applying artificial intelligence to healthcare — specifically, building vision-based systems for sleep apnea detection using thermal imagery alone, without relying on wearable sensors.
       </p>
 
       <p>

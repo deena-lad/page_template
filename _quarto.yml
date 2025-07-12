@@ -2,11 +2,11 @@ project:
   type: website
 
 website:
-  title: "Kirtan Gangani"
+  title: "Homepage"
   navbar:
     left:
-      - text: Home
-        href: index.qmd
+      - text: Blogposts
+        href: blog-posts/index.qmd
     right:
       - icon: github
         href: https://github.com/Kirtan7311
@@ -17,3 +17,6 @@ format:
   html:
     theme: cosmo
     css: styles.css
+    toc: true
+    page-layout: full
+    fig-align: center
