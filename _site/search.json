@@ -42,6 +42,20 @@
     "text": "The Markov Property\nThe Markov Property means that the probability of moving to a future state depends only on the current state, and not on any of the states that came before it.\nImagine you’re playing Monopoly and you land on a specific square, it doesn’t matter if you got there by rolling 6 and 2, or by rolling 5 and 3. All that matters is that you are currently on that square. This “forgetfulness” of past events is what makes Markov Chains unique and, surprisingly, easier to model."
   },
   {
+    "objectID": "blog-posts/markov-chain/index.html#discrete-time-vs.-continuous-time",
+    "href": "blog-posts/markov-chain/index.html#discrete-time-vs.-continuous-time",
+    "title": "Understanding Markov Chains",
+    "section": "Discrete-Time vs. Continuous-Time",
+    "text": "Discrete-Time vs. Continuous-Time\n\nDiscrete-Time Markov Chains (DTMC): In a DTMC, transitions between states occur at fixed, regular intervals or “steps.” Think of it like taking a snapshot of the system every hour, day, or year. Our weather example is a perfect DTMC because we’re looking at the weather “tomorrow” based on “today.” The transition matrix you’ve seen applies directly to DTMCs.\nContinuous-Time Markov Chains (CTMC): In contrast, CTMCs allow transitions to occur at any point in time, not just at predefined intervals. The amount of time spent in a particular state before transitioning is a random variable, often modeled by an exponential distribution. While more complex mathematically, CTMCs are used to model systems where events happen asynchronously, like customer arrivals in a queue or radioactive decay."
+  },
+  {
+    "objectID": "blog-posts/markov-chain/index.html#discrete-state-vs.-continuous-state",
+    "href": "blog-posts/markov-chain/index.html#discrete-state-vs.-continuous-state",
+    "title": "Understanding Markov Chains",
+    "section": "Discrete-State vs. Continuous-State",
+    "text": "Discrete-State vs. Continuous-State\nThis distinction refers to the nature of the states themselves.\n\nDiscrete-State Markov Chains: This is what we’ve been discussing. The system can only be in a finite (or countably infinite) number of distinct, separate states. Examples include: “Sunny,” “Cloudy,” “Rainy”; “Up,” “Down,” “Stagnant” for stock prices; or even the squares on a Monopoly board. All the examples and the transition matrix we’ve used so far fall into this category.\nContinuous-State Markov Chains: In these chains, the state space is continuous, meaning the system can take on any value within a range. For instance, modeling the exact temperature (e.g., 25.3 degrees, 25.31 degrees, etc.) or the precise stock price value over time. These are often more complex and are typically modeled using stochastic differential equations, moving beyond simple transition matrices. For an introductory understanding, focusing on discrete-state chains is appropriate."
+  },
+  {
     "objectID": "blog-posts/brain-to-breath/index.html",
     "href": "blog-posts/brain-to-breath/index.html",
     "title": "How Does Brain Focus Influences Your Respiration?",
@@ -117,20 +131,6 @@
     "title": "Understanding the LSTM Cell",
     "section": "Output Gate",
     "text": "Output Gate\nFinally, the output gate controls how much of the updated cell state (\\(c_t\\)) will be exposed as the current hidden state (\\(h_t\\)). The hidden state is the output of the LSTM cell at the current time step and is also passed on to the next time step.\nFirst, the output gate determines which parts of the cell state are relevant for the current hidden state. It uses the current input (\\(x_t\\)) and the previous hidden state (\\(h_{t−1}\\)) passed through a sigmoid function:\n\\[\\begin{aligned}\no_t &= \\sigma(W_o [h_{t-1}, x_t] + b_o)\n\\end{aligned}\\]\nNext, the updated cell state (\\(c_t\\)) is passed through a tanh activation function. This scales the cell state values to between -1 and 1, making them ready to be filtered.\nFinally, the result of the tanh operation on \\(c_t\\) is element-wise multiplied by the output gate’s activation (\\(o_t\\)) to produce the new hidden state (\\(h_t\\)):\n\\[\\begin{aligned}\nh_t &= o_t \\cdot \\tanh(c_t)\n\\end{aligned}\\]\nThe hidden state \\(h_t\\) serves as the output of the LSTM block for the current time step and is also used as an input to the gates in the next time step."
-  },
-  {
-    "objectID": "blog-posts/markov-chain/index.html#discrete-time-vs.-continuous-time",
-    "href": "blog-posts/markov-chain/index.html#discrete-time-vs.-continuous-time",
-    "title": "Understanding Markov Chains",
-    "section": "Discrete-Time vs. Continuous-Time",
-    "text": "Discrete-Time vs. Continuous-Time\n\nDiscrete-Time Markov Chains (DTMC): In a DTMC, transitions between states occur at fixed, regular intervals or “steps.” Think of it like taking a snapshot of the system every hour, day, or year. Our weather example is a perfect DTMC because we’re looking at the weather “tomorrow” based on “today.” The transition matrix you’ve seen applies directly to DTMCs.\nContinuous-Time Markov Chains (CTMC): In contrast, CTMCs allow transitions to occur at any point in time, not just at predefined intervals. The amount of time spent in a particular state before transitioning is a random variable, often modeled by an exponential distribution. While more complex mathematically, CTMCs are used to model systems where events happen asynchronously, like customer arrivals in a queue or radioactive decay."
-  },
-  {
-    "objectID": "blog-posts/markov-chain/index.html#discrete-state-vs.-continuous-state",
-    "href": "blog-posts/markov-chain/index.html#discrete-state-vs.-continuous-state",
-    "title": "Understanding Markov Chains",
-    "section": "Discrete-State vs. Continuous-State",
-    "text": "Discrete-State vs. Continuous-State\nThis distinction refers to the nature of the states themselves.\n\nDiscrete-State Markov Chains: This is what we’ve been discussing. The system can only be in a finite (or countably infinite) number of distinct, separate states. Examples include: “Sunny,” “Cloudy,” “Rainy”; “Up,” “Down,” “Stagnant” for stock prices; or even the squares on a Monopoly board. All the examples and the transition matrix we’ve used so far fall into this category.\nContinuous-State Markov Chains: In these chains, the state space is continuous, meaning the system can take on any value within a range. For instance, modeling the exact temperature (e.g., 25.3 degrees, 25.31 degrees, etc.) or the precise stock price value over time. These are often more complex and are typically modeled using stochastic differential equations, moving beyond simple transition matrices. For an introductory understanding, focusing on discrete-state chains is appropriate."
   },
   {
     "objectID": "blog-posts/understanding-lstm/index.html#advantages-of-lstms",
