@@ -2,6 +2,7 @@
   {
     "listing": "/blog-posts/index.html",
     "items": [
+      "/blog-posts/ConvLSTM/index.html",
       "/blog-posts/brain-to-breath/index.html",
       "/blog-posts/markov-chain/index.html",
       "/blog-posts/understanding-lstm/index.html"

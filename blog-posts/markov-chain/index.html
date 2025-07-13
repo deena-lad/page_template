@@ -324,7 +324,7 @@ P = \begin{pmatrix}
 \end{pmatrix}
 \]</span></p>
 <p>Let’s represent this in Python using NumPy and Pandas for clear display:</p>
-<div id="e79826a3" class="cell" data-execution_count="20">
+<div id="e79826a3" class="cell" data-execution_count="22">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
@@ -426,7 +426,7 @@ dtype: float64</code></pre>
 </ol>
 <p>By repeating this process many times, we generate a <strong>sequence of states</strong> that represents a possible path the system could take. If we run many such simulations, we can estimate the likelihood of various outcomes or the average behavior of the system over time.</p>
 <p>Let’s simulate a short sequence of weather for 5 days, starting with Sunny:</p>
-<div id="92edf4bf" class="cell" data-execution_count="21">
+<div id="92edf4bf" class="cell" data-execution_count="23">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> simulate_markov_chain(initial_state_idx, P, num_steps, states_names):</span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>    current_state_idx <span class="op">=</span> initial_state_idx</span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    path <span class="op">=</span> [states_names[current_state_idx]]</span>
@@ -450,7 +450,7 @@ dtype: float64</code></pre>
 <span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a><span class="co"># You can run this cell multiple times to see different simulated paths</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>Simulated weather path for 5 days, starting Sunny:
-['Sunny', 'Sunny', 'Cloudy', 'Cloudy', 'Cloudy', 'Cloudy']</code></pre>
+['Sunny', 'Rainy', 'Sunny', 'Sunny', 'Cloudy', 'Rainy']</code></pre>
 </div>
 </div>
 </section>
