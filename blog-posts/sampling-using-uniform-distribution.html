@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Kirtan Gangani">
+<meta name="dcterms.date" content="2025-07-14">
 
-<title>My Blogs – Homepage</title>
+<title>Sampling From Categorical Distribution Using Uniform Distribution – Homepage</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +22,41 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -30,8 +67,6 @@ ul.task-list li input[type="checkbox"] {
 <script src="../site_libs/quarto-search/fuse.min.js"></script>
 <script src="../site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="../">
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -41,7 +76,7 @@ ul.task-list li input[type="checkbox"] {
 <link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../site_libs/bootstrap/bootstrap-dfb324f25d9b1687192fa8be62ac8f9c.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -69,65 +104,7 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
 
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-image','listing-title','listing-categories','listing-description','listing-author','listing-date',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
-
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
-
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN") {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
 
 <link rel="stylesheet" href="../styles.css">
 </head>
@@ -150,7 +127,7 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link active" href="../blog-posts/index.html" aria-current="page"> 
+    <a class="nav-link" href="../blog-posts/index.html"> 
 <span class="menu-text">Blogposts</span></a>
   </li>  
 </ul>
@@ -177,21 +154,54 @@ window.Quarto = {
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(7)</span></div><div class="category" data-category="Q05O">CNN <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFZpc3VhbGlzYXRpb24=">Data Visualisation <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGF0YSUyMFZpc3VhbGl6YXRpb24=">Data Visualization <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGVlcCUyMExlYXJuaW5n">Deep Learning <span class="quarto-category-count">(1)</span></div><div class="category" data-category="RGV0ZXJtaW5pc3RpYw==">Deterministic <span class="quarto-category-count">(1)</span></div><div class="category" data-category="TFNUTQ==">LSTM <span class="quarto-category-count">(2)</span></div><div class="category" data-category="TWF0cGxvdGxpYg==">Matplotlib <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UHJvYmFiaWxpdHk=">Probability <span class="quarto-category-count">(2)</span></div><div class="category" data-category="UHl0aG9u">Python <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2NpUHk=">SciPy <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U2VlZC1iYXNlZA==">Seed-based <span class="quarto-category-count">(1)</span></div><div class="category" data-category="U3RhdGlzdGljcw==">Statistics <span class="quarto-category-count">(2)</span></div></div></div>
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
+  <li><a href="#understanding-the-distributions" id="toc-understanding-the-distributions" class="nav-link" data-scroll-target="#understanding-the-distributions">Understanding the Distributions</a>
+  <ul class="collapse">
+  <li><a href="#categorical-distribution" id="toc-categorical-distribution" class="nav-link" data-scroll-target="#categorical-distribution">Categorical distribution</a></li>
+  <li><a href="#uniform-distributions" id="toc-uniform-distributions" class="nav-link" data-scroll-target="#uniform-distributions">Uniform distributions</a></li>
+  </ul></li>
+  <li><a href="#how-does-the-sampling-works" id="toc-how-does-the-sampling-works" class="nav-link" data-scroll-target="#how-does-the-sampling-works">How does the sampling works?</a>
+  <ul class="collapse">
+  <li><a href="#creating-the-cumulative-probability" id="toc-creating-the-cumulative-probability" class="nav-link" data-scroll-target="#creating-the-cumulative-probability">Creating the cumulative probability</a></li>
+  <li><a href="#sampling-process" id="toc-sampling-process" class="nav-link" data-scroll-target="#sampling-process">Sampling process</a></li>
+  </ul></li>
+  <li><a href="#code" id="toc-code" class="nav-link" data-scroll-target="#code">Code</a></li>
+  </ul>
+</nav>
+    </div>
 <!-- main -->
 <main class="content column-page-left" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My Blogs</h1>
-</div>
+<h1 class="title">Sampling From Categorical Distribution Using Uniform Distribution</h1>
+  <div class="quarto-categories">
+    <div class="quarto-category">Statistics</div>
+    <div class="quarto-category">Probability</div>
+  </div>
+  </div>
 
 
 
 <div class="quarto-title-meta column-page-left">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Kirtan Gangani </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 14, 2025</p>
+    </div>
+  </div>
   
     
   </div>
@@ -201,228 +211,98 @@ window.Quarto = {
 </header>
 
 
+<section id="introduction" class="level1">
+<h1>Introduction</h1>
+<p>Have you ever wondered how computer programs make “random” choices with specific probabilities? Whether it’s deciding the weather in a simulation or picking a random item from a loot table in a game, the underlying mechanism often involves sampling from a categorical distribution.</p>
+<p>A categorical distribution simply defines the probability of selecting each item from a finite set of categories. For example, if we were predicting the weather today in Gandhinagar, Gujarat, India, we might have the following (simplified) probabilities:</p>
+<ul>
+<li>Sunny: 65%</li>
+<li>Rainy: 35%</li>
+<li>Cloudy: 10%</li>
+</ul>
+<p>So, how do we get a computer to make a “random” choice that respects these probabilities? The answer lies in the power of the uniform distribution.</p>
+</section>
+<section id="understanding-the-distributions" class="level1">
+<h1>Understanding the Distributions</h1>
+<p>Before we dive into “how”, let’s quickly understand both the distributions involved:</p>
+<section id="categorical-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="categorical-distribution">Categorical distribution</h2>
+<p>This describes the probabilities of a discrete random variable taking on one of a fixed set of categories (e.g., “Sunny”, “Cloudy”, “Rainy”). Each category has a specific probability, and these probabilities must sum to 1.</p>
+<p>Example:</p>
+<ul>
+<li>Sunny: 0.65 probability</li>
+<li>Cloudy: 0.25 probabilty</li>
+<li>Rainy: 0.1 probability</li>
+</ul>
+</section>
+<section id="uniform-distributions" class="level2">
+<h2 class="anchored" data-anchor-id="uniform-distributions">Uniform distributions</h2>
+<p>This is typically a continuous uniform distribution over the interval [0,1]. It means that any value between 0 and 1 is equally likely to be drawn.</p>
+</section>
+</section>
+<section id="how-does-the-sampling-works" class="level1">
+<h1>How does the sampling works?</h1>
+<p>How do we bridge the gap between this even spread of numbers and the uneven probabilities of our categories? The key is to divide our 0-to-1 range into segments, where the size of each segment corresponds to the probability of a category. To do this, we calculate the cumulative probability for each category.</p>
+<section id="creating-the-cumulative-probability" class="level2">
+<h2 class="anchored" data-anchor-id="creating-the-cumulative-probability">Creating the cumulative probability</h2>
+<p>This is simply the running total of the probabilities. For our Gandhinagar weather example:</p>
+<ul>
+<li>Sunny: 65% (Cumulative: 65%) -&gt; Interval: [0.00, 0.65)</li>
+<li>Rainy: 25% (Cumulative: 65% + 25% = 90%) -&gt; Interval: [0.65, 0.90)</li>
+<li>Cloudy: 10% (Cumulative: 90% + 10% = 100%) -&gt; Interval: [0.66, 1.00]</li>
+</ul>
+</section>
+<section id="sampling-process" class="level2">
+<h2 class="anchored" data-anchor-id="sampling-process">Sampling process</h2>
+<p>Now, we generate a single random number between 0 and 1 from our uniform distribution. The interval in which this random number falls directly corresponds to the category we select.</p>
+<ul>
+<li>If our random number is between 0.00 and 0.65 (exclusive of 0.65), we choose “Sunny.”</li>
+<li>If it’s between 0.65 and 0.90 (exclusive of 0.90), we choose “Rainy.”</li>
+<li>If it’s between 0.90 and 1.00 (inclusive), we choose “Cloudy.”</li>
+</ul>
+<p>Since every number between 0 and 1 has an equal chance of being generated, the likelihood of our random number landing in a particular interval is directly proportional to the size (probability) of that interval.</p>
+</section>
+</section>
+<section id="code" class="level1">
+<h1>Code</h1>
+<p>Below is the Python code that combines all of these concepts. It first calculates the cumulative probabilities, then draws a single “random” number using random library (the uniform distribution), and finally maps that number to one of our weather samples.</p>
+<div id="07d66199" class="cell" data-execution_count="101">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> random</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>samples <span class="op">=</span> [<span class="st">'Sunny'</span>, <span class="st">'Rainy'</span>, <span class="st">'Cloudy'</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>prob    <span class="op">=</span> [<span class="fl">0.65</span>,     <span class="fl">0.25</span>,    <span class="fl">0.1</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>number, cumsum <span class="op">=</span> <span class="dv">0</span>, []</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> prob:</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    number<span class="op">+=</span>i</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    cumsum.append(number)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>drawn_number <span class="op">=</span> random.random()</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Random number generated from to 1: </span><span class="sc">{</span>drawn_number<span class="sc">: .2f}</span><span class="ss">"</span>)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Cumulative distribution of Samples: </span><span class="sc">{</span>cumsum<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'-'</span><span class="op">*</span><span class="dv">81</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i, j <span class="kw">in</span> <span class="bu">enumerate</span>(cumsum):</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> drawn_number <span class="op">&lt;</span> j:</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"The random number</span><span class="sc">{</span>drawn_number<span class="sc">: .2f}</span><span class="ss"> falls between the range </span><span class="sc">{</span>cumsum[i<span class="op">-</span><span class="dv">1</span>]<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>cumsum[i]<span class="sc">}</span><span class="ss">, hence </span><span class="sc">{</span>samples[i]<span class="sc">}</span><span class="ss"> is chosen"</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>        <span class="cf">break</span></span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'-'</span><span class="op">*</span><span class="dv">81</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Random number generated from to 1:  0.74
+Cumulative distribution of Samples: [0.65, 0.9, 1.0]
+---------------------------------------------------------------------------------
+The random number 0.74 falls between the range 0.65 to 0.9, hence Rainy is chosen
+---------------------------------------------------------------------------------</code></pre>
+</div>
+</div>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="listing-actions-group">
-    <div class="input-group input-group-sm quarto-listing-filter">
-      <span class="input-group-text"><i class="bi bi-search"></i></span>
-      <input type="text" class="search form-control" placeholder="Filter">
-    </div>
-</div>
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-categories="UHl0aG9uJTJDU2NpUHklMkNEYXRhJTIwVmlzdWFsaXNhdGlvbg==" data-listing-date-sort="1752431400000" data-listing-file-modified-sort="1752484037010" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="1" data-listing-word-count-sort="1">
-<a href="../blog-posts/minima-maxima.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Finding Minimas and Maximas using SciPy
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHl0aG9u'); return false;">Python</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2NpUHk='); return false;">SciPy</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpc3VhbGlzYXRpb24='); return false;">Data Visualisation</div>
-
-</div>
-<div class="card-text listing-description delink">
-
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Kirtan Gangani
-</div>
-<div class="listing-date">
-Jul 14, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-categories="RGV0ZXJtaW5pc3RpYyUyQ1NlZWQtYmFzZWQ=" data-listing-date-sort="1752431400000" data-listing-file-modified-sort="1752483916113" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="4" data-listing-word-count-sort="617">
-<a href="../blog-posts/prng-algorithm.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-PseudoRandom Number Generator (PRNG)
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGV0ZXJtaW5pc3RpYw=='); return false;">Deterministic</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U2VlZC1iYXNlZA=='); return false;">Seed-based</div>
-
-</div>
-<div class="card-text listing-description delink">
-A PRNG algorithm or PseudoRandom Number Generator algorithm uses mathematical formulas to produce a sequence of random numbers that approximates the properties of random…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Kirtan Gangani
-</div>
-<div class="listing-date">
-Jul 14, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-categories="U3RhdGlzdGljcyUyQ1Byb2JhYmlsaXR5" data-listing-date-sort="1752431400000" data-listing-file-modified-sort="1752482140989" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="445">
-<a href="../blog-posts/sampling-using-uniform-distribution.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Sampling From Categorical Distribution Using Uniform Distribution
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-</div>
-<div class="card-text listing-description delink">
-Have you ever wondered how computer programs make “random” choices with specific probabilities? Whether it’s deciding the weather in a simulation or picking a random item…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Kirtan Gangani
-</div>
-<div class="listing-date">
-Jul 14, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-categories="Q05OJTJDTFNUTQ==" data-listing-date-sort="1752345000000" data-listing-file-modified-sort="1752472281828" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1603">
-<a href="../blog-posts/convlstm.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../blog-posts/images/convlstm.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Understanding ConvLSTM
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('Q05O'); return false;">CNN</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TFNUTQ=='); return false;">LSTM</div>
-
-</div>
-<div class="card-text listing-description delink">
-In the world of deep learning, we’ve witnessed incredible breakthroughs. <strong>Convolutional Neural Networks (CNNs)</strong> have revolutionized the way we interpret <strong>images and spatial data</strong>…<strong></strong><strong></strong><strong></strong>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Kirtan Gangani
-</div>
-<div class="listing-date">
-Jul 13, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-categories="RGF0YSUyMFZpc3VhbGl6YXRpb24lMkNNYXRwbG90bGli" data-listing-date-sort="1752172200000" data-listing-file-modified-sort="1752471873165" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="8" data-listing-word-count-sort="1424">
-<a href="../blog-posts/brain-to-breath.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="images\chess_force.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-How Does Brain Focus Influences Your Respiration?
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGF0YSUyMFZpc3VhbGl6YXRpb24='); return false;">Data Visualization</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TWF0cGxvdGxpYg=='); return false;">Matplotlib</div>
-
-</div>
-<div class="card-text listing-description delink">
-Did you ever wonder how brain and breathing is connected? Ever wondered how brain reacts when you are deeply focused, or when you are calm, or when you are excited? I’ve…<br><strong></strong><br><strong></strong><br><strong></strong>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Kirtan Gangani
-</div>
-<div class="listing-date">
-Jul 11, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="5" data-categories="UHJvYmFiaWxpdHklMkNTdGF0aXN0aWNz" data-listing-date-sort="1752085800000" data-listing-file-modified-sort="1752472084434" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="9" data-listing-word-count-sort="1742">
-<a href="../blog-posts/markov-chain.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="images\state-diagram.jpg" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Understanding Markov Chains
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('UHJvYmFiaWxpdHk='); return false;">Probability</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('U3RhdGlzdGljcw=='); return false;">Statistics</div>
-
-</div>
-<div class="card-text listing-description delink">
-Markov chains, named after Andrey Markov is a powerful mathematical model used to show a sequence of events where the probability of each event depends <em>only</em> on the state…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Kirtan Gangani
-</div>
-<div class="listing-date">
-Jul 10, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="6" data-categories="RGVlcCUyMExlYXJuaW5nJTJDTFNUTQ==" data-listing-date-sort="1752085800000" data-listing-file-modified-sort="1752472094488" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1312">
-<a href="../blog-posts/understanding-lstm.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="images\lstm-cell.png" alt="LSTM-chain" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Understanding the LSTM Cell
-</h5>
-<div class="listing-categories">
-
-<div class="listing-category" onclick="window.quartoListingCategory('RGVlcCUyMExlYXJuaW5n'); return false;">Deep Learning</div>
-
-<div class="listing-category" onclick="window.quartoListingCategory('TFNUTQ=='); return false;">LSTM</div>
-
-</div>
-<div class="card-text listing-description delink">
-Imagine trying to understand a long conversation where you forget the beginning halfway through. Traditional Recurrent Neural Network (RNN) models often struggle with this…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Kirtan Gangani
-</div>
-<div class="listing-date">
-Jul 10, 2025
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     const icon = "";

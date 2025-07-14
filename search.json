@@ -14,102 +14,81 @@
     "text": "My Journey So Far\n\n\n\n\n\n\nMay 2025 – Present\n\n\nStarted working as Research Intern at Sustainability Lab, IIT Gandhinagar\n\n\n\n\nMay 2025\n\n\nCompleted B.Tech in Computer Engineering from Ajeenkya DY Patil University\n\n\n\n\nAug 2021\n\n\nStarted B.Tech in Computer Engineering at Ajeenkya DY Patil University"
   },
   {
-    "objectID": "blog-posts/markov-chain/index.html",
-    "href": "blog-posts/markov-chain/index.html",
-    "title": "Understanding Markov Chains",
+    "objectID": "blog-posts/sampling-using-uniform-distribution.html",
+    "href": "blog-posts/sampling-using-uniform-distribution.html",
+    "title": "Sampling From Categorical Distribution Using Uniform Distribution",
     "section": "",
-    "text": "Markov chains, named after Andrey Markov is a powerful mathematical model used to show a sequence of events where the probability of each event depends only on the state achieved in the previous event. It doesn’t care about the entire history that led to the current state, just the current state itself. This unique “memoryless” property makes them surprisingly versatile and useful for modeling a wide range of real-world phenomena."
+    "text": "Have you ever wondered how computer programs make “random” choices with specific probabilities? Whether it’s deciding the weather in a simulation or picking a random item from a loot table in a game, the underlying mechanism often involves sampling from a categorical distribution.\nA categorical distribution simply defines the probability of selecting each item from a finite set of categories. For example, if we were predicting the weather today in Gandhinagar, Gujarat, India, we might have the following (simplified) probabilities:\n\nSunny: 65%\nRainy: 35%\nCloudy: 10%\n\nSo, how do we get a computer to make a “random” choice that respects these probabilities? The answer lies in the power of the uniform distribution."
   },
   {
-    "objectID": "blog-posts/markov-chain/index.html#states",
-    "href": "blog-posts/markov-chain/index.html#states",
-    "title": "Understanding Markov Chains",
-    "section": "States",
-    "text": "States\nStates are all the possible “situations” or “conditions” our system can be in. For example:\n\nWeather: Sunny, Cloudy, Rainy\n\nA Stock Price: Up, Down, Stagnant\n\nYour Mood: Happy, Neutral, Sad"
+    "objectID": "blog-posts/sampling-using-uniform-distribution.html#categorical-distribution",
+    "href": "blog-posts/sampling-using-uniform-distribution.html#categorical-distribution",
+    "title": "Sampling From Categorical Distribution Using Uniform Distribution",
+    "section": "Categorical distribution",
+    "text": "Categorical distribution\nThis describes the probabilities of a discrete random variable taking on one of a fixed set of categories (e.g., “Sunny”, “Cloudy”, “Rainy”). Each category has a specific probability, and these probabilities must sum to 1.\nExample:\n\nSunny: 0.65 probability\nCloudy: 0.25 probabilty\nRainy: 0.1 probability"
   },
   {
-    "objectID": "blog-posts/markov-chain/index.html#transitions-and-probabilities",
-    "href": "blog-posts/markov-chain/index.html#transitions-and-probabilities",
-    "title": "Understanding Markov Chains",
-    "section": "Transitions and Probabilities",
-    "text": "Transitions and Probabilities\nA transition is simply the movement from one state to another. For example, the weather changing from “Sunny” to “Cloudy.”\nEach transition comes with a transition probability, which is the likelihood of moving from a current state to a next state. These probabilities are always between 0 and 1.\nNote: For any given state in a system, the sum of the probabilities of all possible transitions originating from that state (including the probability of transitioning back to itself) must always equal 1. This holds true regardless of the total number of states in the system."
+    "objectID": "blog-posts/sampling-using-uniform-distribution.html#uniform-distributions",
+    "href": "blog-posts/sampling-using-uniform-distribution.html#uniform-distributions",
+    "title": "Sampling From Categorical Distribution Using Uniform Distribution",
+    "section": "Uniform distributions",
+    "text": "Uniform distributions\nThis is typically a continuous uniform distribution over the interval [0,1]. It means that any value between 0 and 1 is equally likely to be drawn."
   },
   {
-    "objectID": "blog-posts/markov-chain/index.html#the-markov-property",
-    "href": "blog-posts/markov-chain/index.html#the-markov-property",
-    "title": "Understanding Markov Chains",
-    "section": "The Markov Property",
-    "text": "The Markov Property\nThe Markov Property means that the probability of moving to a future state depends only on the current state, and not on any of the states that came before it.\nImagine you’re playing Monopoly and you land on a specific square, it doesn’t matter if you got there by rolling 6 and 2, or by rolling 5 and 3. All that matters is that you are currently on that square. This “forgetfulness” of past events is what makes Markov Chains unique and, surprisingly, easier to model."
+    "objectID": "blog-posts/sampling-using-uniform-distribution.html#creating-the-cumulative-probability",
+    "href": "blog-posts/sampling-using-uniform-distribution.html#creating-the-cumulative-probability",
+    "title": "Sampling From Categorical Distribution Using Uniform Distribution",
+    "section": "Creating the cumulative probability",
+    "text": "Creating the cumulative probability\nThis is simply the running total of the probabilities. For our Gandhinagar weather example:\n\nSunny: 65% (Cumulative: 65%) -&gt; Interval: [0.00, 0.65)\nRainy: 25% (Cumulative: 65% + 25% = 90%) -&gt; Interval: [0.65, 0.90)\nCloudy: 10% (Cumulative: 90% + 10% = 100%) -&gt; Interval: [0.66, 1.00]"
   },
   {
-    "objectID": "blog-posts/markov-chain/index.html#discrete-time-vs.-continuous-time",
-    "href": "blog-posts/markov-chain/index.html#discrete-time-vs.-continuous-time",
-    "title": "Understanding Markov Chains",
-    "section": "Discrete-Time vs. Continuous-Time",
-    "text": "Discrete-Time vs. Continuous-Time\n\nDiscrete-Time Markov Chains (DTMC): In a DTMC, transitions between states occur at fixed, regular intervals or “steps.” Think of it like taking a snapshot of the system every hour, day, or year. Our weather example is a perfect DTMC because we’re looking at the weather “tomorrow” based on “today.” The transition matrix you’ve seen applies directly to DTMCs.\nContinuous-Time Markov Chains (CTMC): In contrast, CTMCs allow transitions to occur at any point in time, not just at predefined intervals. The amount of time spent in a particular state before transitioning is a random variable, often modeled by an exponential distribution. While more complex mathematically, CTMCs are used to model systems where events happen asynchronously, like customer arrivals in a queue or radioactive decay."
+    "objectID": "blog-posts/sampling-using-uniform-distribution.html#sampling-process",
+    "href": "blog-posts/sampling-using-uniform-distribution.html#sampling-process",
+    "title": "Sampling From Categorical Distribution Using Uniform Distribution",
+    "section": "Sampling process",
+    "text": "Sampling process\nNow, we generate a single random number between 0 and 1 from our uniform distribution. The interval in which this random number falls directly corresponds to the category we select.\n\nIf our random number is between 0.00 and 0.65 (exclusive of 0.65), we choose “Sunny.”\nIf it’s between 0.65 and 0.90 (exclusive of 0.90), we choose “Rainy.”\nIf it’s between 0.90 and 1.00 (inclusive), we choose “Cloudy.”\n\nSince every number between 0 and 1 has an equal chance of being generated, the likelihood of our random number landing in a particular interval is directly proportional to the size (probability) of that interval."
   },
   {
-    "objectID": "blog-posts/markov-chain/index.html#discrete-state-vs.-continuous-state",
-    "href": "blog-posts/markov-chain/index.html#discrete-state-vs.-continuous-state",
-    "title": "Understanding Markov Chains",
-    "section": "Discrete-State vs. Continuous-State",
-    "text": "Discrete-State vs. Continuous-State\nThis distinction refers to the nature of the states themselves.\n\nDiscrete-State Markov Chains: This is what we’ve been discussing. The system can only be in a finite (or countably infinite) number of distinct, separate states. Examples include: “Sunny,” “Cloudy,” “Rainy”; “Up,” “Down,” “Stagnant” for stock prices; or even the squares on a Monopoly board. All the examples and the transition matrix we’ve used so far fall into this category.\nContinuous-State Markov Chains: In these chains, the state space is continuous, meaning the system can take on any value within a range. For instance, modeling the exact temperature (e.g., 25.3 degrees, 25.31 degrees, etc.) or the precise stock price value over time. These are often more complex and are typically modeled using stochastic differential equations, moving beyond simple transition matrices. For an introductory understanding, focusing on discrete-state chains is appropriate."
-  },
-  {
-    "objectID": "blog-posts/ConvLSTM/index.html",
-    "href": "blog-posts/ConvLSTM/index.html",
-    "title": "Understanding ConvLSTM",
+    "objectID": "blog-posts/index.html",
+    "href": "blog-posts/index.html",
+    "title": "My Blogs",
     "section": "",
-    "text": "In the world of deep learning, we’ve witnessed incredible breakthroughs. Convolutional Neural Networks (CNNs) have revolutionized the way we interpret images and spatial data, while Recurrent Neural Networks (RNNs), particularly Long Short-Term Memory (LSTM) networks, have become indispensable for understanding sequential information like text and time series.\nBut what happens when your data is both spatial and sequential? Think about video: it’s a sequence of images. How do you analyze dynamic patterns that evolve in both space and time? This is where traditional networks often struggle, and it’s precisely the challenge that ConvLSTM was designed to address.\nIn this blog post, we will understand the fundamental building blocks, understand their individual limitations, and then the solution that ConvLSTM offers for understanding dynamic data."
+    "text": "Finding Minimas and Maximas using SciPy\n\n\n\nPython\n\nSciPy\n\nData Visualisation\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 14, 2025\n\n\n\n\n\n\n\n\n\n\n\nPseudoRandom Number Generator (PRNG)\n\n\n\nDeterministic\n\nSeed-based\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 14, 2025\n\n\n\n\n\n\n\n\n\n\n\nSampling From Categorical Distribution Using Uniform Distribution\n\n\n\nStatistics\n\nProbability\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 14, 2025\n\n\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding ConvLSTM\n\n\n\nCNN\n\nLSTM\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 13, 2025\n\n\n\n\n\n\n\n\n\n\n\nHow Does Brain Focus Influences Your Respiration?\n\n\n\nData Visualization\n\nMatplotlib\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 11, 2025\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding Markov Chains\n\n\n\nProbability\n\nStatistics\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 10, 2025\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the LSTM Cell\n\n\n\nDeep Learning\n\nLSTM\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 10, 2025\n\n\n\n\n\n\nNo matching items"
   },
   {
-    "objectID": "blog-posts/ConvLSTM/index.html#cnns",
-    "href": "blog-posts/ConvLSTM/index.html#cnns",
-    "title": "Understanding ConvLSTM",
-    "section": "CNNs",
-    "text": "CNNs\nCNNs are a specialized type of neural network designed for processing grid-like data. This makes them exceptionally good at handling images, video frames, and other spatial datasets. Their power comes from their ability to automatically learn hierarchical spatial features directly from raw input (e.g., pixels). This is done in two steps:\n1. Early layers detect specific local patterns like edges, corners and textures.\n2. Deeper layers then combine these to recognize complex objects and patterns.\n\n\n\nFigure 1: A conceptual diagram of a Convolutional Neural Network, showing how spatial features are extracted and downsampled through convolutional and pooling layers.\n\n\nAs you can see in Figure 1, CNNs apply filters (kernels) across the input to create feature maps, progressively reducing the spatial dimensions while increasing feature complexity. This architecture is inherently designed to understand where features are located in space."
+    "objectID": "blog-posts/brain-to-breath.html",
+    "href": "blog-posts/brain-to-breath.html",
+    "title": "How Does Brain Focus Influences Your Respiration?",
+    "section": "",
+    "text": "Did you ever wonder how brain and breathing is connected? Ever wondered how brain reacts when you are deeply focused, or when you are calm, or when you are excited? I’ve always been fascinated by the subtle ways our bodies react to different experiences. So, I decided to turn my own body into a living laboratory. Using a Vernier respiratory belt I have captured my breath across three distinct scenarios:\n1. The focused intensity of a chess match\n2. The serene calm of soft music\n3. The raw energy of metal music."
   },
   {
-    "objectID": "blog-posts/ConvLSTM/index.html#lstms",
-    "href": "blog-posts/ConvLSTM/index.html#lstms",
-    "title": "Understanding ConvLSTM",
-    "section": "LSTMs",
-    "text": "LSTMs\nLSTMs are a special type of Recurrent Neural Network (RNN) specifically designed to process sequential data. They were introduced to mitigate common problems in standard RNNs, such as the vanishing or exploding gradient problem, which made it difficult for RNNs to learn long-term dependencies.\nThe core of an LSTM’s power lies in its Cell State (Memory) and its “gates”:\n\nCell State (Memory): Imagine this as a “conveyor belt” for information, running through the entire sequence. It carries information across time steps, allowing the network to retain relevant data for long periods.\nGates: Three specialized “gates” control the flow of information into and out of the cell state:\n\nForget Gate: Decides what information to discard from the previous cell state.\nInput Gate: Determines how much of the new candidate information (derived from the current input and previous hidden state) should be added to the cell state.\nOutput Gate: Controls how much of the current cell state will contribute to the hidden state, which then serves as the output for the current time step and input for the next.\n\n\n\n\n\nFigure 2: The internal structure of a Long Short-Term Memory (LSTM) cell.\n\n\nFigure 2 visually represents these gates and how they interact to selectively update and output information, making LSTMs adept at remembering crucial details over long sequences."
+    "objectID": "blog-posts/brain-to-breath.html#study-1-the-focus-intensity-of-chess",
+    "href": "blog-posts/brain-to-breath.html#study-1-the-focus-intensity-of-chess",
+    "title": "How Does Brain Focus Influences Your Respiration?",
+    "section": "Study 1: The Focus-Intensity of Chess",
+    "text": "Study 1: The Focus-Intensity of Chess\nFor this study, I played a 3-minute online chess game. The goal of playing chess was to observe how my breathing pattern changes under focus, quick-decision and in winning position.\nI avoided looking at the live data during the match to ensure my breathing patterns remained unconscious and natural. The results were truly shocking! (And yes, for the record: I won the match!)"
   },
   {
-    "objectID": "blog-posts/ConvLSTM/index.html#cnns-good-at-space-but-bad-at-time",
-    "href": "blog-posts/ConvLSTM/index.html#cnns-good-at-space-but-bad-at-time",
-    "title": "Understanding ConvLSTM",
-    "section": "CNNs: Good at Space but Bad at Time",
-    "text": "CNNs: Good at Space but Bad at Time\nStandard CNNs, while excellent at extracting features from individual images or frames but they do not inherently capture temporal dependencies between consecutive frames. When you feed a sequence of images (like a video) into a standard CNN, it treats each frame as an independent input. This means it can recognize objects within each frame, but it loses crucial information about motion, changes, or the sequence of events over time. For example, a CNN could identify a car in two consecutive frames, but it wouldn’t inherently understand that the car is moving or how it’s moving."
+    "objectID": "blog-posts/brain-to-breath.html#study-2-ranges-of-music",
+    "href": "blog-posts/brain-to-breath.html#study-2-ranges-of-music",
+    "title": "How Does Brain Focus Influences Your Respiration?",
+    "section": "Study 2: Ranges of Music",
+    "text": "Study 2: Ranges of Music\nFor this study, I played two very different genres of music to explore on emotional and physiological responses:\n\nLo-Fi Music: I played a regular lo-fi music. This genre is known for its calming and ambient qualities.\nGlam Rock: The reason behind chosing this genre was it is completely opposite to my first choice, this kind of musics are known for energetic, powerful vocals and rhythms.\n\nDuring both music sessions, I made an effort to keep my mind completely free of other thoughts, allowing the music to be the primary influence on my state."
   },
   {
-    "objectID": "blog-posts/ConvLSTM/index.html#lstms-good-at-time-but-bad-at-space",
-    "href": "blog-posts/ConvLSTM/index.html#lstms-good-at-time-but-bad-at-space",
-    "title": "Understanding ConvLSTM",
-    "section": "LSTMs: Good at Time but Bad at Space",
-    "text": "LSTMs: Good at Time but Bad at Space\nTraditional LSTMs are excellent for sequences, but they expect a 1D vector as input at each time step. This presents a major challenge for spatial data like images or video frames. To feed an image (e.g., a 64x64 pixel grayscale image) into a standard LSTM, you would first have to “flatten” (unroll) its 2D grid into a long 1D vector (e.g., 4096 pixels).\nThis “flattening” process leads to two significant problems:\n\nLoss of Spatial Relationships: When you flatten an image, you destroy the crucial spatial relationships between pixels. Pixels that were close together in the 2D grid become distant in the 1D vector. The LSTM then loses the ability to recognize patterns based on proximity, adjacency, or overall shape – the very strengths of CNNs.\nHigh Dimensionality: For higher-resolution images or colored images, flattening can lead to extremely long input vectors, making the LSTM computationally expensive, prone to overfitting, and harder to train effectively."
+    "objectID": "blog-posts/brain-to-breath.html#chess",
+    "href": "blog-posts/brain-to-breath.html#chess",
+    "title": "How Does Brain Focus Influences Your Respiration?",
+    "section": "Chess",
+    "text": "Chess\nMy chess game offered wonderful insights into how our thought and pressure directly impacts respiration. My overall respiration rate (BPM) averaged approximately 9.52, ranging from a minimum of 6.44 BPM to a maximum of 11.58 BPM. The average respiratory force (amplitude) was about 17.01 N. The match naturally progressed through its three distinct stages: Opening, Middlegame, and Endgame.\nDuring the Opening, as a strong chess player, I felt confident and familiar with the initial moves. My breathing was normal and consistent.\nHowever, as the game transitioned into the Middlegame, the game required some critical decision-making, and my data clearly showed moments where I unconsciously held my breath – periods shown by noticeable dips or plateaus in my breathing rate, sometimes approaching the minimum of 6.44 BPM. These natural pauses coincides precisely with periods of intense calculation. The highest recorded force, a peak of 36.42 N, likely indicates more forceful, compensatory breaths taken after these periods of breath-holding, as my body worked to regain oxygen balance.\nEven at the start of the Endgame, I was unconciously holding my breath as the position was not so easy. At last when I gained a winning advantage, my breathing gradually returned to normal. There were still some game decisive moments at last but ultimately I won.\n\n\n\nFigure 1. This graph shows the “force” or amplitude of my chest movements during the game. Notice the sustained periods of lower force and more rough patterns during the intense calculation phases, interspersed with sharp increases as my body compensated.\n\n\n\nFigure 2. This graph displays my breathing rate in Breaths Per Minute (BPM). The slight dips and less consistent pattern during the intense phases of the game correspond to moments where my breathing rate decreased due to unconscious breath-holding, sometimes reaching a minimum of 6.44 BPM."
   },
   {
-    "objectID": "blog-posts/ConvLSTM/index.html#the-5d-input",
-    "href": "blog-posts/ConvLSTM/index.html#the-5d-input",
-    "title": "Understanding ConvLSTM",
-    "section": "The 5D Input",
-    "text": "The 5D Input\nBefore diving into the mechanics, let’s understand the typical input data shape for a ConvLSTM layer. It’s usually a 5D tensor with the following dimensions:\n(batch_size, timesteps, height, width, channels)\nLet’s break down each dimension:\n\nbatch_size: The number of independent sequences processed simultaneously (for parallel computation).\ntimesteps: The length of the sequence (e.g., the number of video frames in a clip).\nheight: The spatial height of each input frame/grid.\nwidth: The spatial width of each input frame/grid.\nchannels: The number of feature channels for each input frame/grid (e.g., 3 for an RGB image, 1 for grayscale).\n\nThis 5D structure is crucial because it allows the ConvLSTM to operate on the full spatial dimensions of your data at each time step."
-  },
-  {
-    "objectID": "blog-posts/ConvLSTM/index.html#convolutions-inside-the-lstm-loop",
-    "href": "blog-posts/ConvLSTM/index.html#convolutions-inside-the-lstm-loop",
-    "title": "Understanding ConvLSTM",
-    "section": "Convolutions Inside the LSTM loop",
-    "text": "Convolutions Inside the LSTM loop\nIn a traditional LSTM, the gates (Forget, Input, Output) and the candidate cell state generation perform matrix multiplications with their inputs (current input and previous hidden state).\nIn ConvLSTM, all these matrix multiplications are fundamentally replaced by convolutional operations. This means that ,the Forget Gate, the Input Gate, the Output Gate and the candidate cell state generation all utilises 2D or 3D, depending on your data and implementation convolutional filters. This is how CNNs work inside the LSTM loop.\n\n\n\nFigure 3: A conceptual diagram of a ConvLSTM cell, highlighting how all internal matrix multiplications are replaced by convolutional operations (denoted by the orange asterisk)\n\n\nAs shown in Figure 3, the inputs \\(X_t\\), \\(H_{t-1}\\), and \\(C_{t-1}\\) are no longer flattened vectors. Instead, they are spatial feature maps (or the raw image/frame), and the weights (\\(W_{XC}\\), \\(W_{XH}\\), etc.) are now convolutional kernals. These kernels slide across the spatial dimensions of the input, preserving the spatial hierarchy."
-  },
-  {
-    "objectID": "blog-posts/ConvLSTM/index.html#preserving-spatial-hierarchy-and-learning-temporal-dependencies",
-    "href": "blog-posts/ConvLSTM/index.html#preserving-spatial-hierarchy-and-learning-temporal-dependencies",
-    "title": "Understanding ConvLSTM",
-    "section": "Preserving Spatial Hierarchy and Learning Temporal Dependencies",
-    "text": "Preserving Spatial Hierarchy and Learning Temporal Dependencies\nBy replacing matrix multiplications with convolutions, ConvLSTM achieves two critical advantages:\n\nSpatial Feature Learning: Just like a CNN, it can learn and extract spatial features (edges, textures, object parts) from each input frame or spatial slice at every time step.\n\nTemporal Dependency Modeling: Like an LSTM, it can maintain and update an internal cell state across time, allowing it to learn long-term dependencies and patterns in the sequence.\n\nThis means that instead of just learning what to remember or forget (as in a regular LSTM), a ConvLSTM learns what spatial patterns to remember or forget over time, and how those patterns evolve."
+    "objectID": "blog-posts/brain-to-breath.html#music",
+    "href": "blog-posts/brain-to-breath.html#music",
+    "title": "How Does Brain Focus Influences Your Respiration?",
+    "section": "Music",
+    "text": "Music\nI chose two tracks that perfectly contrasted each other to observe a range of physiological responses: Powfu’s “Death Bed (Coffee for Your Head)” (lo-fi) and Måneskin’s “Beggin’” (glam rock). The results, analyzed separately for each song, vividly illustrate how my breathing adapted to the energy and mood of the music.\n\nLo-Fi\nWith Powfu’s lo-fi track, the calm and ambient qualities of the music truly settled my breathing. It felt like I was sleeping. My data showed this: my respiration rate (BPM) averaged a calm 11.21, showing remarkable consistency with a minimum of 10.27 BPM and a maximum of 12.33 BPM representing a calmer, more consistent, and generally slower respiratory rate which means I was relaxed. It was clear that the gentle rhythm of the song encouraged a feeling of peace.\n\n\n\nFigure 3. This graph shows the consistent and rhythmic amplitude of my chest movements while listening to Powfu, reflecting relaxed and even breathing, with an average force of 23.6 N.\n\n\n\nFigure 4. This graph illustrates the steady and lower breathing rate (BPM) maintained throughout the Powfu track, with an average of 11.21 BPM and a narrow range between 10.27 BPM and 12.33 BPM, a clear sign of a calm physiological state.\n\n\n\n\nGlam Rock\nIn contrast, when Måneskin’s “Beggin’” started, my breathing shifted dramatically. This glam rock anthem, known for its powerful vocals, and high energy, immediately got me “vibing”. My respiratory patterns became more dramatic and responsive. While the average respiratory force (amplitude) was 18.53 N, the graph clearly shows how the force of my breaths intensified and varied significantly, with peaks reaching 30.98 N and quick drops to a minimum of 9.86 N, demonstrating the erratic nature as I subconsciously mirrored the song’s energy. Concurrently, my breathing rate (BPM) showed an average of 13.59, with significant fluctuations ranging from a minimum of 8.95 BPM to a maximum of 17.75 BPM, reflecting the electrifying and energetic nature of the music. This powerful shift in my breathing was a direct physiological response to the song’s exhilarating impact.\n\n\n\nFigure 5. Here, the “force” or amplitude of my chest movements during Måneskin’s “Beggin’” demonstrates higher and more erratic peaks, indicating more energetic and less controlled breathing. The force varied widely, from a minimum of 9.86 N to a peak of 30.98 N.\n\n\n\nFigure 6. This graph shows my increased and less consistent breathing rate (BPM) while listening to “Beggin’,” reflecting the song’s stimulating effect on my physiology. The rate averaged 13.59 BPM but showed significant variations, from a low of 8.95 BPM to a high of 17.75 BPM."
   },
   {
     "objectID": "about.html",
@@ -119,87 +98,185 @@
     "text": "About this site"
   },
   {
-    "objectID": "blog-posts/brain-to-breath/index.html",
-    "href": "blog-posts/brain-to-breath/index.html",
-    "title": "How Does Brain Focus Influences Your Respiration?",
+    "objectID": "blog-posts/convlstm.html",
+    "href": "blog-posts/convlstm.html",
+    "title": "Understanding ConvLSTM",
     "section": "",
-    "text": "Did you ever wonder how brain and breathing is connected? Ever wondered how brain reacts when you are deeply focused, or when you are calm, or when you are excited? I’ve always been fascinated by the subtle ways our bodies react to different experiences. So, I decided to turn my own body into a living laboratory. Using a Vernier respiratory belt I have captured my breath across three distinct scenarios:\n1. The focused intensity of a chess match\n2. The serene calm of soft music\n3. The raw energy of metal music."
+    "text": "In the world of deep learning, we’ve witnessed incredible breakthroughs. Convolutional Neural Networks (CNNs) have revolutionized the way we interpret images and spatial data, while Recurrent Neural Networks (RNNs), particularly Long Short-Term Memory (LSTM) networks, have become indispensable for understanding sequential information like text and time series.\nBut what happens when your data is both spatial and sequential? Think about video: it’s a sequence of images. How do you analyze dynamic patterns that evolve in both space and time? This is where traditional networks often struggle, and it’s precisely the challenge that ConvLSTM was designed to address.\nIn this blog post, we will understand the fundamental building blocks, understand their individual limitations, and then the solution that ConvLSTM offers for understanding dynamic data."
   },
   {
-    "objectID": "blog-posts/brain-to-breath/index.html#study-1-the-focus-intensity-of-chess",
-    "href": "blog-posts/brain-to-breath/index.html#study-1-the-focus-intensity-of-chess",
-    "title": "How Does Brain Focus Influences Your Respiration?",
-    "section": "Study 1: The Focus-Intensity of Chess",
-    "text": "Study 1: The Focus-Intensity of Chess\nFor this study, I played a 3-minute online chess game. The goal of playing chess was to observe how my breathing pattern changes under focus, quick-decision and in winning position.\nI avoided looking at the live data during the match to ensure my breathing patterns remained unconscious and natural. The results were truly shocking! (And yes, for the record: I won the match!)"
+    "objectID": "blog-posts/convlstm.html#cnns",
+    "href": "blog-posts/convlstm.html#cnns",
+    "title": "Understanding ConvLSTM",
+    "section": "CNNs",
+    "text": "CNNs\nCNNs are a specialized type of neural network designed for processing grid-like data. This makes them exceptionally good at handling images, video frames, and other spatial datasets. Their power comes from their ability to automatically learn hierarchical spatial features directly from raw input (e.g., pixels). This is done in two steps:\n1. Early layers detect specific local patterns like edges, corners and textures.\n2. Deeper layers then combine these to recognize complex objects and patterns.\n\n\n\nFigure 1: A conceptual diagram of a Convolutional Neural Network, showing how spatial features are extracted and downsampled through convolutional and pooling layers.\n\n\nAs you can see in Figure 1, CNNs apply filters (kernels) across the input to create feature maps, progressively reducing the spatial dimensions while increasing feature complexity. This architecture is inherently designed to understand where features are located in space."
   },
   {
-    "objectID": "blog-posts/brain-to-breath/index.html#study-2-ranges-of-music",
-    "href": "blog-posts/brain-to-breath/index.html#study-2-ranges-of-music",
-    "title": "How Does Brain Focus Influences Your Respiration?",
-    "section": "Study 2: Ranges of Music",
-    "text": "Study 2: Ranges of Music\nFor this study, I played two very different genres of music to explore on emotional and physiological responses:\n\nLo-Fi Music: I played a regular lo-fi music. This genre is known for its calming and ambient qualities.\nGlam Rock: The reason behind chosing this genre was it is completely opposite to my first choice, this kind of musics are known for energetic, powerful vocals and rhythms.\n\nDuring both music sessions, I made an effort to keep my mind completely free of other thoughts, allowing the music to be the primary influence on my state."
+    "objectID": "blog-posts/convlstm.html#lstms",
+    "href": "blog-posts/convlstm.html#lstms",
+    "title": "Understanding ConvLSTM",
+    "section": "LSTMs",
+    "text": "LSTMs\nLSTMs are a special type of Recurrent Neural Network (RNN) specifically designed to process sequential data. They were introduced to mitigate common problems in standard RNNs, such as the vanishing or exploding gradient problem, which made it difficult for RNNs to learn long-term dependencies.\nThe core of an LSTM’s power lies in its Cell State (Memory) and its “gates”:\n\nCell State (Memory): Imagine this as a “conveyor belt” for information, running through the entire sequence. It carries information across time steps, allowing the network to retain relevant data for long periods.\nGates: Three specialized “gates” control the flow of information into and out of the cell state:\n\nForget Gate: Decides what information to discard from the previous cell state.\nInput Gate: Determines how much of the new candidate information (derived from the current input and previous hidden state) should be added to the cell state.\nOutput Gate: Controls how much of the current cell state will contribute to the hidden state, which then serves as the output for the current time step and input for the next.\n\n\n\n\n\nFigure 2: The internal structure of a Long Short-Term Memory (LSTM) cell.\n\n\nFigure 2 visually represents these gates and how they interact to selectively update and output information, making LSTMs adept at remembering crucial details over long sequences."
   },
   {
-    "objectID": "blog-posts/brain-to-breath/index.html#chess",
-    "href": "blog-posts/brain-to-breath/index.html#chess",
-    "title": "How Does Brain Focus Influences Your Respiration?",
-    "section": "Chess",
-    "text": "Chess\nMy chess game offered wonderful insights into how our thought and pressure directly impacts respiration. My overall respiration rate (BPM) averaged approximately 9.52, ranging from a minimum of 6.44 BPM to a maximum of 11.58 BPM. The average respiratory force (amplitude) was about 17.01 N. The match naturally progressed through its three distinct stages: Opening, Middlegame, and Endgame.\nDuring the Opening, as a strong chess player, I felt confident and familiar with the initial moves. My breathing was normal and consistent.\nHowever, as the game transitioned into the Middlegame, the game required some critical decision-making, and my data clearly showed moments where I unconsciously held my breath – periods shown by noticeable dips or plateaus in my breathing rate, sometimes approaching the minimum of 6.44 BPM. These natural pauses coincides precisely with periods of intense calculation. The highest recorded force, a peak of 36.42 N, likely indicates more forceful, compensatory breaths taken after these periods of breath-holding, as my body worked to regain oxygen balance.\nEven at the start of the Endgame, I was unconciously holding my breath as the position was not so easy. At last when I gained a winning advantage, my breathing gradually returned to normal. There were still some game decisive moments at last but ultimately I won.\n\n\n\nFigure 1. This graph shows the “force” or amplitude of my chest movements during the game. Notice the sustained periods of lower force and more rough patterns during the intense calculation phases, interspersed with sharp increases as my body compensated.\n\n\n\nFigure 2. This graph displays my breathing rate in Breaths Per Minute (BPM). The slight dips and less consistent pattern during the intense phases of the game correspond to moments where my breathing rate decreased due to unconscious breath-holding, sometimes reaching a minimum of 6.44 BPM."
+    "objectID": "blog-posts/convlstm.html#cnns-good-at-space-but-bad-at-time",
+    "href": "blog-posts/convlstm.html#cnns-good-at-space-but-bad-at-time",
+    "title": "Understanding ConvLSTM",
+    "section": "CNNs: Good at Space but Bad at Time",
+    "text": "CNNs: Good at Space but Bad at Time\nStandard CNNs, while excellent at extracting features from individual images or frames but they do not inherently capture temporal dependencies between consecutive frames. When you feed a sequence of images (like a video) into a standard CNN, it treats each frame as an independent input. This means it can recognize objects within each frame, but it loses crucial information about motion, changes, or the sequence of events over time. For example, a CNN could identify a car in two consecutive frames, but it wouldn’t inherently understand that the car is moving or how it’s moving."
   },
   {
-    "objectID": "blog-posts/brain-to-breath/index.html#music",
-    "href": "blog-posts/brain-to-breath/index.html#music",
-    "title": "How Does Brain Focus Influences Your Respiration?",
-    "section": "Music",
-    "text": "Music\nI chose two tracks that perfectly contrasted each other to observe a range of physiological responses: Powfu’s “Death Bed (Coffee for Your Head)” (lo-fi) and Måneskin’s “Beggin’” (glam rock). The results, analyzed separately for each song, vividly illustrate how my breathing adapted to the energy and mood of the music.\n\nLo-Fi\nWith Powfu’s lo-fi track, the calm and ambient qualities of the music truly settled my breathing. It felt like I was sleeping. My data showed this: my respiration rate (BPM) averaged a calm 11.21, showing remarkable consistency with a minimum of 10.27 BPM and a maximum of 12.33 BPM representing a calmer, more consistent, and generally slower respiratory rate which means I was relaxed. It was clear that the gentle rhythm of the song encouraged a feeling of peace.\n\n\n\nFigure 3. This graph shows the consistent and rhythmic amplitude of my chest movements while listening to Powfu, reflecting relaxed and even breathing, with an average force of 23.6 N.\n\n\n\nFigure 4. This graph illustrates the steady and lower breathing rate (BPM) maintained throughout the Powfu track, with an average of 11.21 BPM and a narrow range between 10.27 BPM and 12.33 BPM, a clear sign of a calm physiological state.\n\n\n\n\nGlam Rock\nIn contrast, when Måneskin’s “Beggin’” started, my breathing shifted dramatically. This glam rock anthem, known for its powerful vocals, and high energy, immediately got me “vibing”. My respiratory patterns became more dramatic and responsive. While the average respiratory force (amplitude) was 18.53 N, the graph clearly shows how the force of my breaths intensified and varied significantly, with peaks reaching 30.98 N and quick drops to a minimum of 9.86 N, demonstrating the erratic nature as I subconsciously mirrored the song’s energy. Concurrently, my breathing rate (BPM) showed an average of 13.59, with significant fluctuations ranging from a minimum of 8.95 BPM to a maximum of 17.75 BPM, reflecting the electrifying and energetic nature of the music. This powerful shift in my breathing was a direct physiological response to the song’s exhilarating impact.\n\n\n\nFigure 5. Here, the “force” or amplitude of my chest movements during Måneskin’s “Beggin’” demonstrates higher and more erratic peaks, indicating more energetic and less controlled breathing. The force varied widely, from a minimum of 9.86 N to a peak of 30.98 N.\n\n\n\nFigure 6. This graph shows my increased and less consistent breathing rate (BPM) while listening to “Beggin’,” reflecting the song’s stimulating effect on my physiology. The rate averaged 13.59 BPM but showed significant variations, from a low of 8.95 BPM to a high of 17.75 BPM."
+    "objectID": "blog-posts/convlstm.html#lstms-good-at-time-but-bad-at-space",
+    "href": "blog-posts/convlstm.html#lstms-good-at-time-but-bad-at-space",
+    "title": "Understanding ConvLSTM",
+    "section": "LSTMs: Good at Time but Bad at Space",
+    "text": "LSTMs: Good at Time but Bad at Space\nTraditional LSTMs are excellent for sequences, but they expect a 1D vector as input at each time step. This presents a major challenge for spatial data like images or video frames. To feed an image (e.g., a 64x64 pixel grayscale image) into a standard LSTM, you would first have to “flatten” (unroll) its 2D grid into a long 1D vector (e.g., 4096 pixels).\nThis “flattening” process leads to two significant problems:\n\nLoss of Spatial Relationships: When you flatten an image, you destroy the crucial spatial relationships between pixels. Pixels that were close together in the 2D grid become distant in the 1D vector. The LSTM then loses the ability to recognize patterns based on proximity, adjacency, or overall shape – the very strengths of CNNs.\nHigh Dimensionality: For higher-resolution images or colored images, flattening can lead to extremely long input vectors, making the LSTM computationally expensive, prone to overfitting, and harder to train effectively."
   },
   {
-    "objectID": "blog-posts/index.html",
-    "href": "blog-posts/index.html",
-    "title": "My Blogs",
+    "objectID": "blog-posts/convlstm.html#the-5d-input",
+    "href": "blog-posts/convlstm.html#the-5d-input",
+    "title": "Understanding ConvLSTM",
+    "section": "The 5D Input",
+    "text": "The 5D Input\nBefore diving into the mechanics, let’s understand the typical input data shape for a ConvLSTM layer. It’s usually a 5D tensor with the following dimensions:\n(batch_size, timesteps, height, width, channels)\nLet’s break down each dimension:\n\nbatch_size: The number of independent sequences processed simultaneously (for parallel computation).\ntimesteps: The length of the sequence (e.g., the number of video frames in a clip).\nheight: The spatial height of each input frame/grid.\nwidth: The spatial width of each input frame/grid.\nchannels: The number of feature channels for each input frame/grid (e.g., 3 for an RGB image, 1 for grayscale).\n\nThis 5D structure is crucial because it allows the ConvLSTM to operate on the full spatial dimensions of your data at each time step."
+  },
+  {
+    "objectID": "blog-posts/convlstm.html#convolutions-inside-the-lstm-loop",
+    "href": "blog-posts/convlstm.html#convolutions-inside-the-lstm-loop",
+    "title": "Understanding ConvLSTM",
+    "section": "Convolutions Inside the LSTM loop",
+    "text": "Convolutions Inside the LSTM loop\nIn a traditional LSTM, the gates (Forget, Input, Output) and the candidate cell state generation perform matrix multiplications with their inputs (current input and previous hidden state).\nIn ConvLSTM, all these matrix multiplications are fundamentally replaced by convolutional operations. This means that ,the Forget Gate, the Input Gate, the Output Gate and the candidate cell state generation all utilises 2D or 3D, depending on your data and implementation convolutional filters. This is how CNNs work inside the LSTM loop.\n\n\n\nFigure 3: A conceptual diagram of a ConvLSTM cell, highlighting how all internal matrix multiplications are replaced by convolutional operations (denoted by the orange asterisk)\n\n\nAs shown in Figure 3, the inputs \\(X_t\\), \\(H_{t-1}\\), and \\(C_{t-1}\\) are no longer flattened vectors. Instead, they are spatial feature maps (or the raw image/frame), and the weights (\\(W_{XC}\\), \\(W_{XH}\\), etc.) are now convolutional kernals. These kernels slide across the spatial dimensions of the input, preserving the spatial hierarchy."
+  },
+  {
+    "objectID": "blog-posts/convlstm.html#preserving-spatial-hierarchy-and-learning-temporal-dependencies",
+    "href": "blog-posts/convlstm.html#preserving-spatial-hierarchy-and-learning-temporal-dependencies",
+    "title": "Understanding ConvLSTM",
+    "section": "Preserving Spatial Hierarchy and Learning Temporal Dependencies",
+    "text": "Preserving Spatial Hierarchy and Learning Temporal Dependencies\nBy replacing matrix multiplications with convolutions, ConvLSTM achieves two critical advantages:\n\nSpatial Feature Learning: Just like a CNN, it can learn and extract spatial features (edges, textures, object parts) from each input frame or spatial slice at every time step.\n\nTemporal Dependency Modeling: Like an LSTM, it can maintain and update an internal cell state across time, allowing it to learn long-term dependencies and patterns in the sequence.\n\nThis means that instead of just learning what to remember or forget (as in a regular LSTM), a ConvLSTM learns what spatial patterns to remember or forget over time, and how those patterns evolve."
+  },
+  {
+    "objectID": "blog-posts/markov-chain.html",
+    "href": "blog-posts/markov-chain.html",
+    "title": "Understanding Markov Chains",
     "section": "",
-    "text": "Understanding ConvLSTM\n\n\n\nCNN\n\nLSTM\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 13, 2025\n\n\n\n\n\n\n\n\n\n\n\nHow Does Brain Focus Influences Your Respiration?\n\n\n\nData Visualization\n\nMatplotlib\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 11, 2025\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding Markov Chains\n\n\n\nProbability\n\nStatistics\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 10, 2025\n\n\n\n\n\n\n\n\n\n\n\nUnderstanding the LSTM Cell\n\n\n\nDeep Learning\n\nLSTM\n\n\n\n\n\n\n\nKirtan Gangani\n\n\nJul 10, 2025\n\n\n\n\n\n\nNo matching items"
+    "text": "Markov chains, named after Andrey Markov is a powerful mathematical model used to show a sequence of events where the probability of each event depends only on the state achieved in the previous event. It doesn’t care about the entire history that led to the current state, just the current state itself. This unique “memoryless” property makes them surprisingly versatile and useful for modeling a wide range of real-world phenomena."
   },
   {
-    "objectID": "blog-posts/understanding-lstm/index.html",
-    "href": "blog-posts/understanding-lstm/index.html",
+    "objectID": "blog-posts/markov-chain.html#states",
+    "href": "blog-posts/markov-chain.html#states",
+    "title": "Understanding Markov Chains",
+    "section": "States",
+    "text": "States\nStates are all the possible “situations” or “conditions” our system can be in. For example:\n\nWeather: Sunny, Cloudy, Rainy\n\nA Stock Price: Up, Down, Stagnant\n\nYour Mood: Happy, Neutral, Sad"
+  },
+  {
+    "objectID": "blog-posts/markov-chain.html#transitions-and-probabilities",
+    "href": "blog-posts/markov-chain.html#transitions-and-probabilities",
+    "title": "Understanding Markov Chains",
+    "section": "Transitions and Probabilities",
+    "text": "Transitions and Probabilities\nA transition is simply the movement from one state to another. For example, the weather changing from “Sunny” to “Cloudy.”\nEach transition comes with a transition probability, which is the likelihood of moving from a current state to a next state. These probabilities are always between 0 and 1.\nNote: For any given state in a system, the sum of the probabilities of all possible transitions originating from that state (including the probability of transitioning back to itself) must always equal 1. This holds true regardless of the total number of states in the system."
+  },
+  {
+    "objectID": "blog-posts/markov-chain.html#the-markov-property",
+    "href": "blog-posts/markov-chain.html#the-markov-property",
+    "title": "Understanding Markov Chains",
+    "section": "The Markov Property",
+    "text": "The Markov Property\nThe Markov Property means that the probability of moving to a future state depends only on the current state, and not on any of the states that came before it.\nImagine you’re playing Monopoly and you land on a specific square, it doesn’t matter if you got there by rolling 6 and 2, or by rolling 5 and 3. All that matters is that you are currently on that square. This “forgetfulness” of past events is what makes Markov Chains unique and, surprisingly, easier to model."
+  },
+  {
+    "objectID": "blog-posts/markov-chain.html#discrete-time-vs.-continuous-time",
+    "href": "blog-posts/markov-chain.html#discrete-time-vs.-continuous-time",
+    "title": "Understanding Markov Chains",
+    "section": "Discrete-Time vs. Continuous-Time",
+    "text": "Discrete-Time vs. Continuous-Time\n\nDiscrete-Time Markov Chains (DTMC): In a DTMC, transitions between states occur at fixed, regular intervals or “steps.” Think of it like taking a snapshot of the system every hour, day, or year. Our weather example is a perfect DTMC because we’re looking at the weather “tomorrow” based on “today.” The transition matrix you’ve seen applies directly to DTMCs.\nContinuous-Time Markov Chains (CTMC): In contrast, CTMCs allow transitions to occur at any point in time, not just at predefined intervals. The amount of time spent in a particular state before transitioning is a random variable, often modeled by an exponential distribution. While more complex mathematically, CTMCs are used to model systems where events happen asynchronously, like customer arrivals in a queue or radioactive decay."
+  },
+  {
+    "objectID": "blog-posts/markov-chain.html#discrete-state-vs.-continuous-state",
+    "href": "blog-posts/markov-chain.html#discrete-state-vs.-continuous-state",
+    "title": "Understanding Markov Chains",
+    "section": "Discrete-State vs. Continuous-State",
+    "text": "Discrete-State vs. Continuous-State\nThis distinction refers to the nature of the states themselves.\n\nDiscrete-State Markov Chains: This is what we’ve been discussing. The system can only be in a finite (or countably infinite) number of distinct, separate states. Examples include: “Sunny,” “Cloudy,” “Rainy”; “Up,” “Down,” “Stagnant” for stock prices; or even the squares on a Monopoly board. All the examples and the transition matrix we’ve used so far fall into this category.\nContinuous-State Markov Chains: In these chains, the state space is continuous, meaning the system can take on any value within a range. For instance, modeling the exact temperature (e.g., 25.3 degrees, 25.31 degrees, etc.) or the precise stock price value over time. These are often more complex and are typically modeled using stochastic differential equations, moving beyond simple transition matrices. For an introductory understanding, focusing on discrete-state chains is appropriate."
+  },
+  {
+    "objectID": "blog-posts/prng-algorithm.html",
+    "href": "blog-posts/prng-algorithm.html",
+    "title": "PseudoRandom Number Generator (PRNG)",
+    "section": "",
+    "text": "A PRNG algorithm or PseudoRandom Number Generator algorithm uses mathematical formulas to produce a sequence of random numbers that approximates the properties of random numbers.\nWhile these numbers are not truly random (as they are deterministic and can be reproduced if the starting state is known), they are designed to be unpredictable and uniformly distributed, making them suitable for a wide range of applicaions."
+  },
+  {
+    "objectID": "blog-posts/prng-algorithm.html#seed",
+    "href": "blog-posts/prng-algorithm.html#seed",
+    "title": "PseudoRandom Number Generator (PRNG)",
+    "section": "Seed",
+    "text": "Seed\nThe algorithm starts with an initial value called the seed. This seed determines the entire sequence of numbers that will be generated. For a different sequence, you need a different seed. Often, the current time is used as a seed to make the sequences appear more random."
+  },
+  {
+    "objectID": "blog-posts/prng-algorithm.html#state",
+    "href": "blog-posts/prng-algorithm.html#state",
+    "title": "PseudoRandom Number Generator (PRNG)",
+    "section": "State",
+    "text": "State\nThe PRNG maintains an internal “state” that changes with each number generated. This state is the crucial input to the transformation function, and it is updated after each number is produced, becoming the basis for the next calculation."
+  },
+  {
+    "objectID": "blog-posts/prng-algorithm.html#transformation-function",
+    "href": "blog-posts/prng-algorithm.html#transformation-function",
+    "title": "PseudoRandom Number Generator (PRNG)",
+    "section": "Transformation Function",
+    "text": "Transformation Function\nA mathematical function is applied to the current state to produce the next pseudorandom number and update the internal state for the subsequent generation."
+  },
+  {
+    "objectID": "blog-posts/prng-algorithm.html#period",
+    "href": "blog-posts/prng-algorithm.html#period",
+    "title": "PseudoRandom Number Generator (PRNG)",
+    "section": "Period",
+    "text": "Period\nPRNGs eventually repeat their sequence of numbers. The length of this sequence before it repeats is called the “period.” A good PRNG has a very long period."
+  },
+  {
+    "objectID": "blog-posts/understanding-lstm.html",
+    "href": "blog-posts/understanding-lstm.html",
     "title": "Understanding the LSTM Cell",
     "section": "",
     "text": "Imagine trying to understand a long conversation where you forget the beginning halfway through. Traditional Recurrent Neural Network (RNN) models often struggle with this “memory” problem when dealing with sequences of data like text, speech, or time series. As sequences get longer, the information from earlier steps gets “diluted” or “forgotten” or in other words, gradients become too small which is called gradient vanishing. This makes it hard for the RNN to learn long-term dependencies meaning that they can’t effectively connect information from far earlier parts of a sequence to make a current decision.\nThis is where Long Short-Term Memory (LSTM) networks comes in. LSTMs are a special type of RNNs designed to overcome this limitation, allowing AI to remember important information over long periods. They were introduced to mitigate gradient vanishing/exploding problem faced by standard RNNs.\nThis is achieved by a “cell state” that acts like a conveyor belt, carrying information through the network, allowing it to preserve information over long sequences. This is their “long-term memory.” LSTMs achieve their long-term memory capabilities through a unique internal structure called “gates.” These gates are like intelligent filters that control the flow of information in and out of the memory cell. More about gate will be explained in later sections."
   },
   {
-    "objectID": "blog-posts/understanding-lstm/index.html#forget-gate",
-    "href": "blog-posts/understanding-lstm/index.html#forget-gate",
+    "objectID": "blog-posts/understanding-lstm.html#forget-gate",
+    "href": "blog-posts/understanding-lstm.html#forget-gate",
     "title": "Understanding the LSTM Cell",
     "section": "Forget Gate",
     "text": "Forget Gate\nThe forget gate’s primary role is to decide what information from the previous cell state (c_{t-1}) should be discarded or “forgotten”. It takes the current input (x_t) and the hidden state from the last time step (h_{t-1}) as inputs. These are passed through a sigmoid activation function.\n\\[\\begin{aligned}\nf_t &= \\sigma(W_f [h_{t-1}, x_t] + b_f)\n\\end{aligned}\\]\nThe output f_t is a vector with values from 0 to 1. This output is then element-wise multiplied with the previous cell state (c_{t-1}). A value of 1 means “keep all of this information”, while a value of 0 means “forget all of this informtion”. A value of 0.5 would indicate keep half of that information."
   },
   {
-    "objectID": "blog-posts/understanding-lstm/index.html#input-gate",
-    "href": "blog-posts/understanding-lstm/index.html#input-gate",
+    "objectID": "blog-posts/understanding-lstm.html#input-gate",
+    "href": "blog-posts/understanding-lstm.html#input-gate",
     "title": "Understanding the LSTM Cell",
     "section": "Input Gate:",
     "text": "Input Gate:\nThe input gate is responsible for determining which new information from the current input should be stored in the cell state. It works in two parts:\n\nCandidate Memory (_t)\nBefore the input gate itself, there’s the candidate memory, often denoted as _t. Its purpose is to propose new information that could be added to the cell state. Unlike the gates, which use sigmoid, the candidate memory uses a hyperbolic tangent (tanh) activation function. The tanh function outputs values between -1 and 1, allowing for both positive and negative contributions to the cell state.\n\\[\\begin{aligned}\n\\tilde{c}_t &= \\tanh(W_c [h_{t-1}, x_t] + b_c)\n\\end{aligned}\\]\n\n\nInput gate (i_t)\nThe input gate then decides how much of this newly proposed candidate memory t should actually be added to the cell state. Similar to the forget gate, it takes the current input (x_t) and the previous hidden state (h{t-1})and passes them through a sigmoid activation function.\n\\[\\begin{aligned}\ni_t &= \\sigma(W_i [h_{t-1}, x_t] + b_i)\n\\end{aligned}\\]\nthe output i_t acts as a filter for the candidate memory _t\n\n\nCell state Update (\\(c_t\\))\nThis is where the magic happens for updating the long-term memory of the network. The new cell state (\\(c_t\\)) is combination of two components:\n1. The information from the previous cell state (\\(c_{t−1}\\)) that the forget gate (\\(f_t\\)) decided to keep.\n2. The new candidate memory (\\(\\tilde{c}_t\\)) that the input gate (\\(i_t\\)) decided to add.\n\\[\\begin{aligned}\nc_t &= f_t \\cdot c_{t-1} + i_t \\cdot \\tilde{c}_t\n\\end{aligned}\\]\nThese two parts are element-wise added to form the updared cell state (\\(c_t\\)).\nThis updated cell state \\(c_t\\) then carries the network’s long-term memory forward to the next time step."
   },
   {
-    "objectID": "blog-posts/understanding-lstm/index.html#output-gate",
-    "href": "blog-posts/understanding-lstm/index.html#output-gate",
+    "objectID": "blog-posts/understanding-lstm.html#output-gate",
+    "href": "blog-posts/understanding-lstm.html#output-gate",
     "title": "Understanding the LSTM Cell",
     "section": "Output Gate",
     "text": "Output Gate\nFinally, the output gate controls how much of the updated cell state (\\(c_t\\)) will be exposed as the current hidden state (\\(h_t\\)). The hidden state is the output of the LSTM cell at the current time step and is also passed on to the next time step.\nFirst, the output gate determines which parts of the cell state are relevant for the current hidden state. It uses the current input (\\(x_t\\)) and the previous hidden state (\\(h_{t−1}\\)) passed through a sigmoid function:\n\\[\\begin{aligned}\no_t &= \\sigma(W_o [h_{t-1}, x_t] + b_o)\n\\end{aligned}\\]\nNext, the updated cell state (\\(c_t\\)) is passed through a tanh activation function. This scales the cell state values to between -1 and 1, making them ready to be filtered.\nFinally, the result of the tanh operation on \\(c_t\\) is element-wise multiplied by the output gate’s activation (\\(o_t\\)) to produce the new hidden state (\\(h_t\\)):\n\\[\\begin{aligned}\nh_t &= o_t \\cdot \\tanh(c_t)\n\\end{aligned}\\]\nThe hidden state \\(h_t\\) serves as the output of the LSTM block for the current time step and is also used as an input to the gates in the next time step."
   },
   {
-    "objectID": "blog-posts/understanding-lstm/index.html#advantages-of-lstms",
-    "href": "blog-posts/understanding-lstm/index.html#advantages-of-lstms",
+    "objectID": "blog-posts/understanding-lstm.html#advantages-of-lstms",
+    "href": "blog-posts/understanding-lstm.html#advantages-of-lstms",
     "title": "Understanding the LSTM Cell",
     "section": "Advantages of LSTMs:",
     "text": "Advantages of LSTMs:\n\nSolving the Vanishing Gradient Problem: This is their most significant advantage. LSTMs effectively address the vanishing gradient problem inherent in traditional RNNs, allowing them to learn and retain information over very long sequences. This is primarily due to their unique cell state and gate mechanisms that regulate information flow.\nCapturing Long-Term Dependencies: Thanks to their ability to maintain a persistent cell state, LSTMs can connect information from distant past steps to make decisions in the present. This is crucial for tasks like understanding context in long sentences or predicting future values in time series based on historical trends.\nHandling Variable-Length Sequences: LSTMs are naturally designed to process sequences of varying lengths, making them highly versatile for real-world data like text (sentences of different lengths), speech (utterances of different durations), and time series.\nRobustness to Noise (to some extent): The gating mechanism allows LSTMs to selectively filter out irrelevant or noisy information, focusing on the most important features in the sequence.\nWide Applicability: LSTMs have found immense success across a broad spectrum of domains, including:\n\nNatural Language Processing (NLP): Machine translation, sentiment analysis, text summarization, named entity recognition, language modeling.\nSpeech Recognition: Converting spoken words into text.\nTime Series Forecasting: Predicting stock prices, weather patterns, energy consumption.\nVideo Processing: Action recognition, video captioning."
   },
   {
-    "objectID": "blog-posts/understanding-lstm/index.html#disadvantages-of-lstms",
-    "href": "blog-posts/understanding-lstm/index.html#disadvantages-of-lstms",
+    "objectID": "blog-posts/understanding-lstm.html#disadvantages-of-lstms",
+    "href": "blog-posts/understanding-lstm.html#disadvantages-of-lstms",
     "title": "Understanding the LSTM Cell",
     "section": "Disadvantages of LSTMs:",
     "text": "Disadvantages of LSTMs:\n\nComputational Cost: LSTMs are more computationally intensive and slower to train compared to simpler neural networks or even standard RNNs. This is due to the increased number of parameters (weights and biases for each gate) and the complex calculations involved in their internal mechanisms.\nComplex Architecture: The multiple gates and intricate interactions within an LSTM cell make them more complex to understand and debug compared to simpler models. While powerful, this complexity can be a barrier for newcomers.\nDifficulty with Very Long Sequences: Although LSTMs significantly mitigate the long-term dependency problem, they can still struggle with extremely long sequences. As the sequence length increases, the computational burden grows, and even LSTMs can start to lose efficiency or effectiveness.\nLimited Parallelization: The inherent sequential nature of LSTMs (processing one time step after another) makes it challenging to fully parallelize their training across multiple computing cores or GPUs, especially during the forward and backward passes within a sequence. This is a key area where newer architectures like Transformers have shown significant advantages.\nHyperparameter Tuning: LSTMs often require careful tuning of hyperparameters (e.g., number of hidden units, learning rate, dropout) to achieve optimal performance, which can be a time-consuming process.\nOutshined by Transformers in Many NLP Tasks: For many state-of-the-art NLP tasks, transformer architectures (which use attention mechanisms instead of recurrence) have largely surpassed LSTMs in performance, particularly for very long sequences and tasks requiring complex contextual understanding."
+  },
+  {
+    "objectID": "blog-posts/minima-maxima.html",
+    "href": "blog-posts/minima-maxima.html",
+    "title": "Finding Minimas and Maximas using SciPy",
+    "section": "",
+    "text": "Introduction\nIdentifying maxima and minima is a fundamental task if you are analyzing sensor readings, optimizing a machine learning model, or studying scientific phenomena. Fortunately, Python’s SciPy library provides an efficient way to do that.\nIn this blog post, we’ll dive into how to use SciPy for finding both local and global extrema (maximas and minimas) in your data and functions.\n\n\nUnderstanding Maximas and Minimas\n\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.signal import find_peaks\n\ndf = pd.read_csv(r'datasets/chest-belt.csv')\n\nforce = df['Force(N)'].values\ntime = df['Time(s)'].values\n\npeaks, _ = find_peaks(force)\n\nvalleys, _ = find_peaks(-force)\n\nplt.figure(figsize=(12, 4))\nplt.plot(time, force, label='Force', color='blue')\nplt.plot(time[peaks], force[peaks], \"ro\", label='Maxima')\nplt.plot(time[valleys], force[valleys], \"go\", label='Minima')\nplt.title('Maxima and Minima in Force Signal')\nplt.xlabel('Time')\nplt.xlim(0, 300)\nplt.ylabel('Force')\nplt.legend()\nplt.grid(True)\nplt.tight_layout()\nplt.show()\n\n\n\n\n\n\n\n\n\nimport pandas as pd\nimport numpy as np\nimport matplotlib.pyplot as plt\nfrom scipy.signal import find_peaks\n\ndf = pd.read_csv(r'datasets/chest-belt.csv')\n\nforce = df['Force(N)'].values\ntime = df['Time(s)'].values\n\npeaks, _ = find_peaks(force)\nvalleys, _ = find_peaks(-force)\n\nvalid_peaks = []\nvalid_valleys = []\n\nfor peak in peaks:\n    future_valleys = [v for v in valleys if v &gt; peak]\n    if not future_valleys:\n        continue\n\n    next_valley = future_valleys[0] \n    force_diff = force[peak] - force[next_valley]\n\n    if force_diff &gt; 5:\n        valid_peaks.append(peak)\n        valid_valleys.append(next_valley)\n\nplt.figure(figsize=(12, 4))\nplt.plot(time, force, label='Force', color='blue')\nplt.plot(time[valid_peaks], force[valid_peaks], \"ro\", label='Valid Maxima (&gt;5N diff)')\nplt.plot(time[valid_valleys], force[valid_valleys], \"go\", label='Valid Minima (&gt;5N diff)')\nplt.title('Significant Maxima and Minima in Force Signal')\nplt.xlabel('Time (s)')\nplt.xlim(0, 300)\nplt.ylabel('Force (N)')\nplt.legend()\nplt.grid(True)\nplt.tight_layout()\nplt.show()"
   }
 ]
