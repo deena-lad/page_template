@@ -2,6 +2,9 @@
   {
     "listing": "/blog-posts/index.html",
     "items": [
+      "/blog-posts/confusing-english.html",
+      "/blog-posts/fast-fourier-transformer.html",
+      "/blog-posts/git-action.html",
       "/blog-posts/minima-maxima.html",
       "/blog-posts/prng-algorithm.html",
       "/blog-posts/sampling-using-uniform-distribution.html",
