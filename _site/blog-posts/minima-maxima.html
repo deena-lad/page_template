@@ -7,9 +7,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Kirtan Gangani">
-<meta name="dcterms.date" content="2025-07-11">
+<meta name="dcterms.date" content="2025-07-14">
 
-<title>How Does Brain Focus Influences Your Respiration? – Homepage</title>
+<title>Finding Minimas and Maximas using SciPy – Homepage</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -22,26 +22,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../../site_libs/clipboard/clipboard.min.js"></script>
-<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="../../site_libs/quarto-search/fuse.min.js"></script>
-<script src="../../site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="../../">
-<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="../../site_libs/quarto-html/popper.min.js"></script>
-<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="../../site_libs/quarto-html/anchor.min.js"></script>
-<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
-<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-37eea08aefeeee20ff55810ff984fec1.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-bb05f5d0074da2129d766b238819cd35.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -71,7 +106,7 @@ ul.task-list li input[type="checkbox"] {
 }</script>
 
 
-<link rel="stylesheet" href="../../styles.css">
+<link rel="stylesheet" href="../styles.css">
 </head>
 
 <body class="nav-fixed quarto-light">
@@ -81,7 +116,7 @@ ul.task-list li input[type="checkbox"] {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="../../index.html">
+    <a class="navbar-brand" href="../index.html">
     <span class="navbar-title">Homepage</span>
     </a>
   </div>
@@ -92,7 +127,7 @@ ul.task-list li input[type="checkbox"] {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../blog-posts/index.html"> 
+    <a class="nav-link" href="../blog-posts/index.html"> 
 <span class="menu-text">Blogposts</span></a>
   </li>  
 </ul>
@@ -124,22 +159,7 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#introduction" id="toc-introduction" class="nav-link active" data-scroll-target="#introduction">Introduction</a></li>
-  <li><a href="#about-the-device-and-software" id="toc-about-the-device-and-software" class="nav-link" data-scroll-target="#about-the-device-and-software">About the device and software</a></li>
-  <li><a href="#data-collection" id="toc-data-collection" class="nav-link" data-scroll-target="#data-collection">Data Collection</a>
-  <ul class="collapse">
-  <li><a href="#study-1-the-focus-intensity-of-chess" id="toc-study-1-the-focus-intensity-of-chess" class="nav-link" data-scroll-target="#study-1-the-focus-intensity-of-chess">Study 1: The Focus-Intensity of Chess</a></li>
-  <li><a href="#study-2-ranges-of-music" id="toc-study-2-ranges-of-music" class="nav-link" data-scroll-target="#study-2-ranges-of-music">Study 2: Ranges of Music</a></li>
-  </ul></li>
-  <li><a href="#data-visualization-and-analysis" id="toc-data-visualization-and-analysis" class="nav-link" data-scroll-target="#data-visualization-and-analysis">Data Visualization and Analysis</a>
-  <ul class="collapse">
-  <li><a href="#chess" id="toc-chess" class="nav-link" data-scroll-target="#chess">Chess</a></li>
-  <li><a href="#music" id="toc-music" class="nav-link" data-scroll-target="#music">Music</a>
-  <ul class="collapse">
-  <li><a href="#lo-fi" id="toc-lo-fi" class="nav-link" data-scroll-target="#lo-fi">Lo-Fi</a></li>
-  <li><a href="#glam-rock" id="toc-glam-rock" class="nav-link" data-scroll-target="#glam-rock">Glam Rock</a></li>
-  </ul></li>
-  </ul></li>
-  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  <li><a href="#understanding-maximas-and-minimas" id="toc-understanding-maximas-and-minimas" class="nav-link" data-scroll-target="#understanding-maximas-and-minimas">Understanding Maximas and Minimas</a></li>
   </ul>
 </nav>
     </div>
@@ -148,10 +168,11 @@ ul.task-list li input[type="checkbox"] {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">How Does Brain Focus Influences Your Respiration?</h1>
+<h1 class="title">Finding Minimas and Maximas using SciPy</h1>
   <div class="quarto-categories">
-    <div class="quarto-category">Data Visualization</div>
-    <div class="quarto-category">Matplotlib</div>
+    <div class="quarto-category">Python</div>
+    <div class="quarto-category">SciPy</div>
+    <div class="quarto-category">Data Visualisation</div>
   </div>
   </div>
 
@@ -169,7 +190,7 @@ ul.task-list li input[type="checkbox"] {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">July 11, 2025</p>
+      <p class="date">July 14, 2025</p>
     </div>
   </div>
   
@@ -183,105 +204,96 @@ ul.task-list li input[type="checkbox"] {
 
 <section id="introduction" class="level1">
 <h1>Introduction</h1>
-<p>Did you ever wonder how brain and breathing is connected? Ever wondered how brain reacts when you are deeply focused, or when you are calm, or when you are excited? I’ve always been fascinated by the subtle ways our bodies react to different experiences. So, I decided to turn my own body into a living laboratory. Using a Vernier respiratory belt I have captured my breath across three distinct scenarios:<br>
-1. The <strong>focused</strong> intensity of a chess match<br>
-2. The serene <strong>calm</strong> of soft music<br>
-3. The <strong>raw energy</strong> of metal music.</p>
+<p>Identifying maxima and minima is a fundamental task if you are analyzing sensor readings, optimizing a machine learning model, or studying scientific phenomena. Fortunately, Python’s SciPy library provides an efficient way to do that.</p>
+<p>In this blog post, we’ll dive into how to use SciPy for finding both local and global extrema (maximas and minimas) in your data and functions.</p>
 </section>
-<section id="about-the-device-and-software" class="level1">
-<h1>About the device and software</h1>
-<p>For this experiment I am using <strong>Vernier Go Direct Respiration Belt</strong>  (Order Code - GDX-RB).</p>
-<div class="quarto-figure quarto-figure-center">
+<section id="understanding-maximas-and-minimas" class="level1">
+<h1>Understanding Maximas and Minimas</h1>
+<div id="e4d5a49b" class="cell" data-execution_count="48">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> find_peaks</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="vs">r'datasets/chest-belt</span><span class="dv">.</span><span class="vs">csv'</span>)</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>force <span class="op">=</span> df[<span class="st">'Force(N)'</span>].values</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> df[<span class="st">'Time(s)'</span>].values</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>peaks, _ <span class="op">=</span> find_peaks(force)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>valleys, _ <span class="op">=</span> find_peaks(<span class="op">-</span>force)</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>plt.plot(time, force, label<span class="op">=</span><span class="st">'Force'</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>plt.plot(time[peaks], force[peaks], <span class="st">"ro"</span>, label<span class="op">=</span><span class="st">'Maxima'</span>)</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>plt.plot(time[valleys], force[valleys], <span class="st">"go"</span>, label<span class="op">=</span><span class="st">'Minima'</span>)</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Maxima and Minima in Force Signal'</span>)</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Time'</span>)</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">300</span>)</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Force'</span>)</span>
+<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
 <figure class="figure">
-<p><img src="https://www.nsta.org/sites/default/files/blog/2018/07/vernierrespbelt2.jpg" class="img-fluid figure-img"></p>
-<figcaption>Vernier Go Direct Respiration Belt</figcaption>
+<p><img src="minima-maxima_files/figure-html/cell-2-output-1.png" class="img-fluid figure-img"></p>
 </figure>
 </div>
-<p>The Vernier Go Direct Respiration Belt is simple to use device or sensor featuring a single button for both powering the device on and off.</p>
-<p>It also has 3 lights that help you monitor its status:<br>
-1. <strong>Bluetooth Connectivity</strong>: A blinking light indicates the device is ready for pairing. Once successfully connected to a Bluetooth device, this light turns green.<br>
-2. <strong>Battery Status</strong>: A light that turns on when the battery level is very low.<br>
-3. <strong>Proper Fit Indicator</strong>: A light turns on only when the belt is worn correctly around your chest area. If this light doesn’t turn on it means the belt is too loose and needs to be tightened for accurate data collection.</p>
-<p>This was all about device, now about the software:</p>
-<p>There are multiple Vernier softwares available for different types of tasks and device but for this experiment I have used <strong>Vernier Graphical Analysis</strong>.</p>
-<p>This software is very user friendly. It gave me a couple of options to connect Respiration Belt to my PC. First was I can manually pair the device via bluetooth connection, or the other, which I used was using a cool feature called <strong>Proximity Connect</strong>. Just turn on the belt and place it near your device, the software will automatically detect and connects to it</p>
-</section>
-<section id="data-collection" class="level1">
-<h1>Data Collection</h1>
-<p>For this experiment, I wanted to see how my brain and body reacted to activities I genuinely enjoy and often engage in.</p>
-<section id="study-1-the-focus-intensity-of-chess" class="level2">
-<h2 class="anchored" data-anchor-id="study-1-the-focus-intensity-of-chess">Study 1: The Focus-Intensity of Chess</h2>
-<p>For this study, I played a 3-minute online chess game. The goal of playing chess was to observe how my breathing pattern changes under focus, quick-decision and in winning position.</p>
-<p>I avoided looking at the live data during the match to ensure my breathing patterns remained unconscious and natural. The results were truly shocking! (And yes, for the record: I won the match!)</p>
-</section>
-<section id="study-2-ranges-of-music" class="level2">
-<h2 class="anchored" data-anchor-id="study-2-ranges-of-music">Study 2: Ranges of Music</h2>
-<p>For this study, I played two very different genres of music to explore on emotional and physiological responses:</p>
-<ol type="1">
-<li><strong>Lo-Fi Music</strong>: I played a regular lo-fi music. This genre is known for its calming and ambient qualities.</li>
-<li><strong>Glam Rock</strong>: The reason behind chosing this genre was it is completely opposite to my first choice, this kind of musics are known for energetic, powerful vocals and rhythms.</li>
-</ol>
-<p>During both music sessions, I made an effort to keep my mind completely free of other thoughts, allowing the music to be the primary influence on my state.</p>
-</section>
-</section>
-<section id="data-visualization-and-analysis" class="level1">
-<h1>Data Visualization and Analysis</h1>
-<p>This is the moment of truth – the big reveal of all the insights into my brain, and how my brain reacts to the activities I love to do. After reviewing all the data, I was <strong>truly shocked to see just how the brain influences our breathing patterns</strong>. The results from each study provided clear evidence of this connection.</p>
-<section id="chess" class="level2">
-<h2 class="anchored" data-anchor-id="chess">Chess</h2>
-<p>My chess game offered wonderful insights into how our thought and pressure directly impacts respiration. My overall respiration rate (BPM) <strong>averaged approximately 9.52</strong>, ranging from a <strong>minimum of 6.44 BPM</strong> to a <strong>maximum of 11.58 BPM</strong>. The <strong>average</strong> respiratory force (amplitude) was about <strong>17.01 N</strong>. The match naturally progressed through its three distinct stages: Opening, Middlegame, and Endgame.</p>
-<p>During the Opening, as a strong chess player, I felt confident and familiar with the initial moves. My breathing was normal and consistent.</p>
-<p>However, as the game transitioned into the Middlegame, the game required some critical decision-making, and my data clearly showed moments where I unconsciously held my breath – periods shown by noticeable dips or plateaus in my breathing rate, sometimes approaching the <strong>minimum of 6.44 BPM</strong>. These natural pauses coincides precisely with periods of intense calculation. The highest recorded force, a <strong>peak of 36.42 N</strong>, likely indicates more forceful, compensatory breaths taken after these periods of breath-holding, as my body worked to regain oxygen balance.</p>
-<p>Even at the start of the Endgame, I was unconciously holding my breath as the position was not so easy. At last when I gained a winning advantage, my breathing gradually returned to normal. There were still some game decisive moments at last but ultimately I won.</p>
-<dl>
-<dt><img src="chess_force.png" class="img-fluid"></dt>
-<dd>
-<p>Figure 1. This graph shows the “force” or amplitude of my chest movements during the game. Notice the sustained periods of lower force and more rough patterns during the intense calculation phases, interspersed with sharp increases as my body compensated.</p>
-</dd>
-<dt><img src="chess.png" class="img-fluid"></dt>
-<dd>
-<p>Figure 2. This graph displays my breathing rate in Breaths Per Minute (BPM). The slight dips and less consistent pattern during the intense phases of the game correspond to moments where my breathing rate decreased due to unconscious breath-holding, sometimes reaching a minimum of 6.44 BPM.</p>
-</dd>
-</dl>
-</section>
-<section id="music" class="level2">
-<h2 class="anchored" data-anchor-id="music">Music</h2>
-<p>I chose two tracks that perfectly contrasted each other to observe a range of physiological responses: <strong>Powfu’s “Death Bed (Coffee for Your Head)”</strong> (lo-fi) and <strong>Måneskin’s “Beggin’”</strong> (glam rock). The results, analyzed separately for each song, vividly illustrate how my breathing adapted to the energy and mood of the music.</p>
-<section id="lo-fi" class="level3">
-<h3 class="anchored" data-anchor-id="lo-fi">Lo-Fi</h3>
-<p>With Powfu’s lo-fi track, the calm and ambient qualities of the music truly settled my breathing. It felt like I was sleeping. My data showed this: my respiration rate (BPM) averaged a <strong>calm 11.21</strong>, showing remarkable consistency with a <strong>minimum of 10.27 BPM</strong> and a <strong>maximum of 12.33 BPM</strong> representing a calmer, more consistent, and generally slower respiratory rate which means I was relaxed. It was clear that the gentle rhythm of the song encouraged a feeling of peace.</p>
-<dl>
-<dt><img src="powfu_force.png" class="img-fluid"></dt>
-<dd>
-<p>Figure 3. This graph shows the consistent and rhythmic amplitude of my chest movements while listening to Powfu, reflecting relaxed and even breathing, with an average force of 23.6 N.</p>
-</dd>
-<dt><img src="powfu_rate.png" class="img-fluid"></dt>
-<dd>
-<p>Figure 4. This graph illustrates the steady and lower breathing rate (BPM) maintained throughout the Powfu track, with an average of 11.21 BPM and a narrow range between 10.27 BPM and 12.33 BPM, a clear sign of a calm physiological state.</p>
-</dd>
-</dl>
-</section>
-<section id="glam-rock" class="level3">
-<h3 class="anchored" data-anchor-id="glam-rock">Glam Rock</h3>
-<p>In contrast, when Måneskin’s “Beggin’” started, my breathing shifted dramatically. This glam rock anthem, known for its powerful vocals, and high energy, immediately got me “vibing”. My respiratory patterns became more <strong>dramatic</strong> and <strong>responsive</strong>. While the <strong>average</strong> respiratory force (amplitude) was <strong>18.53 N</strong>, the graph clearly shows how the force of my breaths intensified and varied significantly, with <strong>peaks reaching 30.98 N</strong> and quick drops to a <strong>minimum of 9.86 N</strong>, demonstrating the erratic nature as I subconsciously mirrored the song’s energy. Concurrently, my breathing rate (BPM) showed an <strong>average of 13.59</strong>, with significant fluctuations ranging from a <strong>minimum of 8.95 BPM</strong> to a <strong>maximum of 17.75 BPM</strong>, reflecting the electrifying and energetic nature of the music. This powerful shift in my breathing was a direct physiological response to the song’s exhilarating impact.</p>
-<dl>
-<dt><img src="menaskin_force.png" class="img-fluid"></dt>
-<dd>
-<p>Figure 5. Here, the “force” or amplitude of my chest movements during Måneskin’s “Beggin’” demonstrates higher and more erratic peaks, indicating more energetic and less controlled breathing. The force varied widely, from a minimum of 9.86 N to a peak of 30.98 N.</p>
-</dd>
-<dt><img src="menaskin_rate.png" class="img-fluid"></dt>
-<dd>
-<p>Figure 6. This graph shows my increased and less consistent breathing rate (BPM) while listening to “Beggin’,” reflecting the song’s stimulating effect on my physiology. The rate averaged 13.59 BPM but showed significant variations, from a low of 8.95 BPM to a high of 17.75 BPM.</p>
-</dd>
-</dl>
-</section>
-</section>
-</section>
-<section id="conclusion" class="level1">
-<h1>Conclusion</h1>
-<p>This experiment demonstrates a powerful reminder that our breath is not just an automatic function, but a dynamic language that constantly communicates with our inner state.</p>
-<p>From the calculated pauses and pressure-induced shifts during a chess match to the calming consistency of lo-fi and the energetic surges of glam rock, my Vernier Go Direct Respiration Belt captured the dance of my mind, emotions, and physiological responses. It’s truly fascinating to see how something as fundamental as breathing adapts so precisely to moments of intense focus, serene relaxation, and exhilarating excitement.</p>
-<p>This “big reveal” wasn’t just about numbers and graphs; it was about gaining a deeper understanding of my own body’s incredible responsiveness. It highlights how powerful personal data collection can be in understanding the complex connections within us.</p>
+</div>
+</div>
+<div id="585444dd" class="cell" data-execution_count="47">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> scipy.signal <span class="im">import</span> find_peaks</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="vs">r'datasets/chest-belt</span><span class="dv">.</span><span class="vs">csv'</span>)</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>force <span class="op">=</span> df[<span class="st">'Force(N)'</span>].values</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>time <span class="op">=</span> df[<span class="st">'Time(s)'</span>].values</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>peaks, _ <span class="op">=</span> find_peaks(force)</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>valleys, _ <span class="op">=</span> find_peaks(<span class="op">-</span>force)</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>valid_peaks <span class="op">=</span> []</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>valid_valleys <span class="op">=</span> []</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> peak <span class="kw">in</span> peaks:</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>    future_valleys <span class="op">=</span> [v <span class="cf">for</span> v <span class="kw">in</span> valleys <span class="cf">if</span> v <span class="op">&gt;</span> peak]</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> future_valleys:</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>        <span class="cf">continue</span></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    next_valley <span class="op">=</span> future_valleys[<span class="dv">0</span>] </span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    force_diff <span class="op">=</span> force[peak] <span class="op">-</span> force[next_valley]</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> force_diff <span class="op">&gt;</span> <span class="dv">5</span>:</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a>        valid_peaks.append(peak)</span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>        valid_valleys.append(next_valley)</span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">12</span>, <span class="dv">4</span>))</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>plt.plot(time, force, label<span class="op">=</span><span class="st">'Force'</span>, color<span class="op">=</span><span class="st">'blue'</span>)</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>plt.plot(time[valid_peaks], force[valid_peaks], <span class="st">"ro"</span>, label<span class="op">=</span><span class="st">'Valid Maxima (&gt;5N diff)'</span>)</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>plt.plot(time[valid_valleys], force[valid_valleys], <span class="st">"go"</span>, label<span class="op">=</span><span class="st">'Valid Minima (&gt;5N diff)'</span>)</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">'Significant Maxima and Minima in Force Signal'</span>)</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a>plt.xlabel(<span class="st">'Time (s)'</span>)</span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>plt.xlim(<span class="dv">0</span>, <span class="dv">300</span>)</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a>plt.ylabel(<span class="st">'Force (N)'</span>)</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a>plt.legend()</span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>plt.grid(<span class="va">True</span>)</span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a>plt.show()</span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="minima-maxima_files/figure-html/cell-3-output-1.png" class="img-fluid figure-img"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
 </section>
