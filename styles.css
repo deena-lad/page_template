@@ -13,3 +13,90 @@ td {
   border-bottom: 1px solid #ddd;
   vertical-align: top;
 }
+
+.profile-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.profile-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile-image img {
+  width: 230px;
+  border-radius: 15px;
+  margin-bottom: 20px;
+}
+
+.profile-text {
+  flex: 1;
+  min-width: 250px;
+}
+
+/* 🔧 Default = desktop: 2 logos per row */
+.profile-links {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 15px;
+  width: 100%;
+  max-width: 230px;
+  justify-items: center;
+}
+
+.profile-links a {
+  color: black;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 18px;
+  line-height: 1;
+  padding: 5px 0;
+}
+
+.profile-links a img {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  display: block;
+  margin: 0;
+}
+
+.profile-links .link-text {
+  display: inline;
+  white-space: nowrap;
+  font-size: 18px;
+}
+
+/* 📱 Medium screens: make all logos in one row */
+@media screen and (max-width: 850px) {
+  .profile-container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-text {
+    padding-top: 15px;
+  }
+
+  .profile-links {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    max-width: 100%;
+  }
+}
+
+/* 📱 Small screens: 2 logos per row */
+@media screen and (max-width: 550px) {
+  .profile-links {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
