@@ -31,7 +31,7 @@ td {
 
 .profile-image img {
   width: 230px;
-  border-radius: 15px;
+  border-radius: 5%;
   margin-bottom: 20px;
 }
 
@@ -40,14 +40,13 @@ td {
   min-width: 250px;
 }
 
-/* 🔧 Default = desktop: 2 logos per row */
 .profile-links {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  justify-content: center;
   width: 100%;
   max-width: 230px;
-  justify-items: center;
 }
 
 .profile-links a {
@@ -55,7 +54,6 @@ td {
   text-decoration: none;
   display: flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
   font-size: 18px;
   line-height: 1;
@@ -63,8 +61,8 @@ td {
 }
 
 .profile-links a img {
-  width: 28px;
-  height: 28px;
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   display: block;
   margin: 0;
@@ -76,8 +74,7 @@ td {
   font-size: 18px;
 }
 
-/* 📱 Medium screens: make all logos in one row */
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 750px) {
   .profile-container {
     flex-direction: column;
     align-items: center;
@@ -89,14 +86,13 @@ td {
   }
 
   .profile-links {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-content: center;
     max-width: 100%;
   }
 }
 
-/* 📱 Small screens: 2 logos per row */
-@media screen and (max-width: 550px) {
+@media screen and (max-width: 350px) {
   .profile-links {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    justify-content: center;
   }
 }
