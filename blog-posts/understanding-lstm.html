@@ -159,8 +159,8 @@ window.Quarto = {
   <li><a href="#forget-gate" id="toc-forget-gate" class="nav-link" data-scroll-target="#forget-gate">Forget Gate</a></li>
   <li><a href="#input-gate" id="toc-input-gate" class="nav-link" data-scroll-target="#input-gate">Input Gate:</a>
   <ul class="collapse">
-  <li><a href="#candidate-memory-_t" id="toc-candidate-memory-_t" class="nav-link" data-scroll-target="#candidate-memory-_t">Candidate Memory (_t)</a></li>
-  <li><a href="#input-gate-i_t" id="toc-input-gate-i_t" class="nav-link" data-scroll-target="#input-gate-i_t">Input gate (i_t)</a></li>
+  <li><a href="#candidate-memory-tildec_t" id="toc-candidate-memory-tildec_t" class="nav-link" data-scroll-target="#candidate-memory-tildec_t">Candidate Memory (<span class="math inline">\(\tilde{c}_t\)</span>)</a></li>
+  <li><a href="#input-gate-i_t" id="toc-input-gate-i_t" class="nav-link" data-scroll-target="#input-gate-i_t">Input gate (<span class="math inline">\(i_t\)</span>)</a></li>
   <li><a href="#cell-state-update-c_t" id="toc-cell-state-update-c_t" class="nav-link" data-scroll-target="#cell-state-update-c_t">Cell state Update (<span class="math inline">\(c_t\)</span>)</a></li>
   </ul></li>
   <li><a href="#output-gate" id="toc-output-gate" class="nav-link" data-scroll-target="#output-gate">Output Gate</a></li>
@@ -242,15 +242,15 @@ f_t &amp;= \sigma(W_f [h_{t-1}, x_t] + b_f)
 <section id="input-gate" class="level2">
 <h2 class="anchored" data-anchor-id="input-gate">Input Gate:</h2>
 <p>The input gate is responsible for determining which new information from the current input should be stored in the cell state. It works in two parts:</p>
-<section id="candidate-memory-_t" class="level3">
-<h3 class="anchored" data-anchor-id="candidate-memory-_t">Candidate Memory (_t)</h3>
+<section id="candidate-memory-tildec_t" class="level3">
+<h3 class="anchored" data-anchor-id="candidate-memory-tildec_t">Candidate Memory (<span class="math inline">\(\tilde{c}_t\)</span>)</h3>
 <p>Before the input gate itself, there’s the candidate memory, often denoted as _t. Its purpose is to propose new information that could be added to the cell state. Unlike the gates, which use sigmoid, the candidate memory uses a hyperbolic tangent (tanh) activation function. The tanh function outputs values between -1 and 1, allowing for both positive and negative contributions to the cell state.</p>
 <span class="math display">\[\begin{aligned}
 \tilde{c}_t &amp;= \tanh(W_c [h_{t-1}, x_t] + b_c)
 \end{aligned}\]</span>
 </section>
 <section id="input-gate-i_t" class="level3">
-<h3 class="anchored" data-anchor-id="input-gate-i_t">Input gate (i_t)</h3>
+<h3 class="anchored" data-anchor-id="input-gate-i_t">Input gate (<span class="math inline">\(i_t\)</span>)</h3>
 <p>The input gate then decides how much of this newly proposed candidate memory <em>t should actually be added to the cell state. Similar to the forget gate, it takes the current input (x_t) and the previous hidden state (h</em>{t-1})and passes them through a sigmoid activation function.</p>
 <span class="math display">\[\begin{aligned}
 i_t &amp;= \sigma(W_i [h_{t-1}, x_t] + b_i)
