@@ -9,9 +9,9 @@ website:
         href: blog-posts/index.qmd
     right:
       - icon: github
-        href: https://github.com/KirtanGangani
+        href: https://github.com/DeenaLad
       - icon: linkedin
-        href: https://www.linkedin.com/in/kirtan-gangani-k789/
+        href: https://www.linkedin.com/in/deena-lad-307645214/
 
 format:
   html:
