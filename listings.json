@@ -2,16 +2,7 @@
   {
     "listing": "/blog-posts/index.html",
     "items": [
-      "/blog-posts/confusing-english.html",
-      "/blog-posts/fast-fourier-transformer.html",
-      "/blog-posts/git-action.html",
-      "/blog-posts/minima-maxima.html",
-      "/blog-posts/prng-algorithm.html",
-      "/blog-posts/sampling-using-uniform-distribution.html",
-      "/blog-posts/convlstm.html",
-      "/blog-posts/brain-to-breath.html",
-      "/blog-posts/markov-chain.html",
-      "/blog-posts/understanding-lstm.html"
+      "/blog-posts/HTAP_19_20.html"
     ]
   }
 ]
